@@ -9,7 +9,9 @@
 import UIKit
 
 class GroceryTableViewController: UITableViewController {
-        
+    
+    var groceryList = NSMutableArray()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,46 +30,64 @@ class GroceryTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
         // Return the number of sections.
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return groceryList.count
     }
 
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
-
-        // Configure the cell...
+        
+        // Configure the cell for this row...
+        
+        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as GroceryTableViewCell
+        
+        // Get the row index of this cell
+        var index = indexPath.row
+        
+        // Get the grocery corresponding to this index
+        var grocery = groceryList.objectAtIndex(index) as Grocery
+        
+        // Assign the grocery to this cell
+        cell.myGrocery = grocery
+        
 
         return cell
     }
-    */
 
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the specified item to be editable.
+        
+        // Return true because we will allow users to add and delete groceries
         return true
     }
-    */
 
-    /*
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            
+            // Delete grocery from array
+            groceryList.removeObjectAtIndex(indexPath.row)
+            
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+            
+            var newGrocery = Grocery()
+            newGrocery.name = "Bacon"
+            newGrocery.points = 50
+            groceryList.addObject(newGrocery)
+            
+            tableView.reloadData()
+            
         }    
     }
-    */
 
     /*
     // Override to support rearranging the table view.
@@ -76,13 +96,12 @@ class GroceryTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the item to be re-orderable.
         return true
     }
-    */
 
     /*
     // MARK: - Navigation
