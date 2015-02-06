@@ -22,14 +22,14 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="pts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJo-kQ-Iy9">
-                        <rect key="frame" x="8" y="61" width="42" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="points" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJo-kQ-Iy9">
+                        <rect key="frame" x="9" y="60" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoV-9o-TCQ">
-                        <rect key="frame" x="8" y="26" width="43" height="37"/>
+                        <rect key="frame" x="8" y="21" width="43" height="43"/>
                         <fontDescription key="fontDescription" type="system" pointSize="35"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -41,7 +41,7 @@
                 <outlet property="nameLabel" destination="WHq-05-l24" id="Xey-rU-Q5c"/>
                 <outlet property="pointLabel" destination="OoV-9o-TCQ" id="CXz-VA-coA"/>
             </connections>
-            <point key="canvasLocation" x="527" y="515"/>
+            <point key="canvasLocation" x="527" y="514"/>
         </tableViewCell>
     </objects>
 </document>

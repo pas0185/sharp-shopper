@@ -12,7 +12,9 @@ class Grocery: NSObject {
 
     var id: Int = 0
     var points: Int = 0
-    var name: String?
+    var name: String = ""
+    var purchased: Bool = false
+    
     var price: Double = 0.00
     
 }

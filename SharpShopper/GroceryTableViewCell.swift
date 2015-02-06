@@ -10,6 +10,8 @@ import UIKit
 
 class GroceryTableViewCell: UITableViewCell {
 
+    var myGrocery: Grocery!
+    
     @IBOutlet var buySwitch: UISwitch!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var pointLabel: UILabel!
@@ -17,6 +19,11 @@ class GroceryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        buySwitch.setOn(myGrocery.purchased, animated: false)
+        nameLabel.text = myGrocery.name
+        pointLabel.text = String(myGrocery.points)
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

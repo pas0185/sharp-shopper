@@ -18,6 +18,8 @@
 		CDD53FE31A85525800791912 /* Grocery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FE21A85525800791912 /* Grocery.swift */; };
 		CDD53FE61A8553FC00791912 /* GroceryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FE41A8553FC00791912 /* GroceryTableViewCell.swift */; };
 		CDD53FE71A8553FC00791912 /* GroceryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD53FE51A8553FC00791912 /* GroceryTableViewCell.xib */; };
+		CDD53FEB1A85769000791912 /* GroceryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FE91A85769000791912 /* GroceryTableViewController.swift */; };
+		CDD53FEC1A85769000791912 /* GroceryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD53FEA1A85769000791912 /* GroceryTableViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		CDD53FE21A85525800791912 /* Grocery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Grocery.swift; path = models/Grocery.swift; sourceTree = "<group>"; };
 		CDD53FE41A8553FC00791912 /* GroceryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryTableViewCell.swift; sourceTree = "<group>"; };
 		CDD53FE51A8553FC00791912 /* GroceryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroceryTableViewCell.xib; sourceTree = "<group>"; };
+		CDD53FE91A85769000791912 /* GroceryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryTableViewController.swift; sourceTree = "<group>"; };
+		CDD53FEA1A85769000791912 /* GroceryTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroceryTableViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,13 +95,11 @@
 				CDD53FC21A84384200791912 /* MasterViewController.swift */,
 				CDD53FC41A84384200791912 /* DetailViewController.swift */,
 				CDD53FC61A84384200791912 /* Main.storyboard */,
-				CDD53FE41A8553FC00791912 /* GroceryTableViewCell.swift */,
-				CDD53FE51A8553FC00791912 /* GroceryTableViewCell.xib */,
+				CDD53FE81A8575F700791912 /* Grocery */,
 				CDD53FC91A84384200791912 /* Images.xcassets */,
 				CDD53FCB1A84384200791912 /* LaunchScreen.xib */,
 				CDD53FBF1A84384200791912 /* SharpShopper.xcdatamodeld */,
 				CDD53FBB1A84384200791912 /* Supporting Files */,
-				CDD53FE21A85525800791912 /* Grocery.swift */,
 			);
 			path = SharpShopper;
 			sourceTree = "<group>";
@@ -125,6 +127,18 @@
 				CDD53FD71A84384200791912 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CDD53FE81A8575F700791912 /* Grocery */ = {
+			isa = PBXGroup;
+			children = (
+				CDD53FE21A85525800791912 /* Grocery.swift */,
+				CDD53FE41A8553FC00791912 /* GroceryTableViewCell.swift */,
+				CDD53FE51A8553FC00791912 /* GroceryTableViewCell.xib */,
+				CDD53FE91A85769000791912 /* GroceryTableViewController.swift */,
+				CDD53FEA1A85769000791912 /* GroceryTableViewController.xib */,
+			);
+			name = Grocery;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDD53FC81A84384200791912 /* Main.storyboard in Resources */,
+				CDD53FEC1A85769000791912 /* GroceryTableViewController.xib in Resources */,
 				CDD53FCD1A84384200791912 /* LaunchScreen.xib in Resources */,
 				CDD53FCA1A84384200791912 /* Images.xcassets in Resources */,
 				CDD53FE71A8553FC00791912 /* GroceryTableViewCell.xib in Resources */,
@@ -234,6 +249,7 @@
 				CDD53FC31A84384200791912 /* MasterViewController.swift in Sources */,
 				CDD53FC51A84384200791912 /* DetailViewController.swift in Sources */,
 				CDD53FE31A85525800791912 /* Grocery.swift in Sources */,
+				CDD53FEB1A85769000791912 /* GroceryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
