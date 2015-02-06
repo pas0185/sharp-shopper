@@ -15,6 +15,9 @@
                 <subviews>
                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h5Z-Nj-p45">
                         <rect key="frame" x="263" y="29" width="51" height="31"/>
+                        <connections>
+                            <action selector="purchasedSwitchChanged:forEvent:" destination="KGk-i7-Jjw" eventType="valueChanged" id="7j0-XG-q1u"/>
+                        </connections>
                     </switch>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Grocery " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WHq-05-l24">
                         <rect key="frame" x="66" y="21" width="165" height="52"/>

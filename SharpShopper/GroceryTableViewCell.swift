@@ -20,10 +20,12 @@ class GroceryTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        buySwitch.setOn(myGrocery.purchased, animated: false)
+        // Assign text to UILabels
         nameLabel.text = myGrocery.name
         pointLabel.text = String(myGrocery.points)
         
+        // Assign state to the UISwitch
+        buySwitch.setOn(myGrocery.purchased, animated: false)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -32,4 +34,11 @@ class GroceryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func purchasedSwitchChanged(sender: AnyObject, forEvent event: UIEvent) {
+
+        // If we flip the switch, flip myGrocery's purchased value
+        
+        myGrocery.purchased = buySwitch.on
+        
+    }
 }
