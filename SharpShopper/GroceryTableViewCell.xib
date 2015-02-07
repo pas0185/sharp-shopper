@@ -37,6 +37,12 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Purchased?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ySO-BB-Yfu">
+                        <rect key="frame" x="207" y="63" width="101" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
@@ -44,7 +50,7 @@
                 <outlet property="nameLabel" destination="WHq-05-l24" id="Xey-rU-Q5c"/>
                 <outlet property="pointLabel" destination="OoV-9o-TCQ" id="CXz-VA-coA"/>
             </connections>
-            <point key="canvasLocation" x="527" y="514"/>
+            <point key="canvasLocation" x="527" y="512"/>
         </tableViewCell>
     </objects>
 </document>
