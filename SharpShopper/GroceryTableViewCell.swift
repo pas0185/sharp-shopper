@@ -39,6 +39,5 @@ class GroceryTableViewCell: UITableViewCell {
         // If we flip the switch, flip myGrocery's purchased value
         
         myGrocery.purchased = buySwitch.on
-        
     }
 }

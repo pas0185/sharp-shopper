@@ -17,6 +17,7 @@
 		CDD53FE71A8553FC00791912 /* GroceryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD53FE51A8553FC00791912 /* GroceryTableViewCell.xib */; };
 		CDD53FEB1A85769000791912 /* GroceryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FE91A85769000791912 /* GroceryTableViewController.swift */; };
 		CDD53FEC1A85769000791912 /* GroceryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD53FEA1A85769000791912 /* GroceryTableViewController.xib */; };
+		CDF6D7B11A868B710061CE28 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF6D7B01A868B710061CE28 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		CDD53FE51A8553FC00791912 /* GroceryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroceryTableViewCell.xib; sourceTree = "<group>"; };
 		CDD53FE91A85769000791912 /* GroceryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryTableViewController.swift; sourceTree = "<group>"; };
 		CDD53FEA1A85769000791912 /* GroceryTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroceryTableViewController.xib; sourceTree = "<group>"; };
+		CDF6D7B01A868B710061CE28 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			children = (
 				CDD53FE21A85525800791912 /* Grocery.swift */,
 				CDD53FE41A8553FC00791912 /* GroceryTableViewCell.swift */,
+				CDF6D7B01A868B710061CE28 /* User.swift */,
 				CDD53FE51A8553FC00791912 /* GroceryTableViewCell.xib */,
 				CDD53FE91A85769000791912 /* GroceryTableViewController.swift */,
 				CDD53FEA1A85769000791912 /* GroceryTableViewController.xib */,
@@ -235,6 +238,7 @@
 			files = (
 				CDD53FC11A84384200791912 /* SharpShopper.xcdatamodeld in Sources */,
 				CDD53FE61A8553FC00791912 /* GroceryTableViewCell.swift in Sources */,
+				CDF6D7B11A868B710061CE28 /* User.swift in Sources */,
 				CDD53FBE1A84384200791912 /* AppDelegate.swift in Sources */,
 				CDD53FE31A85525800791912 /* Grocery.swift in Sources */,
 				CDD53FEB1A85769000791912 /* GroceryTableViewController.swift in Sources */,
