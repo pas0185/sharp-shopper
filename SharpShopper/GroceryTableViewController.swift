@@ -14,6 +14,22 @@ class GroceryTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        // Put dummy grocery data in the list
+        var g1 = Grocery()
+        g1.name = "bacon"
+        g1.points = 400
+        
+        var g2 = Grocery()
+        g2.name = "steak"
+        g2.points = 4500
+        
+        
+        groceryList.addObject(g1)
+        groceryList.addObject(g2)
+        
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -43,7 +59,9 @@ class GroceryTableViewController: UITableViewController {
         
         // Configure the cell for this row...
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as GroceryTableViewCell
+//        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as GroceryTableViewCell
+        
+        var cell = GroceryTableViewCell()
         
         // Get the row index of this cell
         var index = indexPath.row
@@ -52,12 +70,10 @@ class GroceryTableViewController: UITableViewController {
         var grocery = groceryList.objectAtIndex(index) as Grocery
         
         // Assign the grocery to this cell
-        cell.myGrocery = grocery
+        cell.assignGrocery(grocery)
         
-
         return cell
     }
-
     
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

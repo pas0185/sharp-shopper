@@ -88,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				CDD53FBD1A84384200791912 /* AppDelegate.swift */,
+				CDF6D7B21A8690C30061CE28 /* User */,
 				CDD53FE81A8575F700791912 /* Grocery */,
 				CDD53FC91A84384200791912 /* Images.xcassets */,
 				CDD53FCB1A84384200791912 /* LaunchScreen.xib */,
@@ -127,12 +128,19 @@
 			children = (
 				CDD53FE21A85525800791912 /* Grocery.swift */,
 				CDD53FE41A8553FC00791912 /* GroceryTableViewCell.swift */,
-				CDF6D7B01A868B710061CE28 /* User.swift */,
 				CDD53FE51A8553FC00791912 /* GroceryTableViewCell.xib */,
 				CDD53FE91A85769000791912 /* GroceryTableViewController.swift */,
 				CDD53FEA1A85769000791912 /* GroceryTableViewController.xib */,
 			);
 			name = Grocery;
+			sourceTree = "<group>";
+		};
+		CDF6D7B21A8690C30061CE28 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				CDF6D7B01A868B710061CE28 /* User.swift */,
+			);
+			name = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
