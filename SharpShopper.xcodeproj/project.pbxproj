@@ -9,9 +9,6 @@
 /* Begin PBXBuildFile section */
 		CDD53FBE1A84384200791912 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FBD1A84384200791912 /* AppDelegate.swift */; };
 		CDD53FC11A84384200791912 /* SharpShopper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FBF1A84384200791912 /* SharpShopper.xcdatamodeld */; };
-		CDD53FC31A84384200791912 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FC21A84384200791912 /* MasterViewController.swift */; };
-		CDD53FC51A84384200791912 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FC41A84384200791912 /* DetailViewController.swift */; };
-		CDD53FC81A84384200791912 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDD53FC61A84384200791912 /* Main.storyboard */; };
 		CDD53FCA1A84384200791912 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDD53FC91A84384200791912 /* Images.xcassets */; };
 		CDD53FCD1A84384200791912 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD53FCB1A84384200791912 /* LaunchScreen.xib */; };
 		CDD53FD91A84384200791912 /* SharpShopperTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FD81A84384200791912 /* SharpShopperTests.swift */; };
@@ -37,9 +34,6 @@
 		CDD53FBC1A84384200791912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDD53FBD1A84384200791912 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CDD53FC01A84384200791912 /* SharpShopper.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SharpShopper.xcdatamodel; sourceTree = "<group>"; };
-		CDD53FC21A84384200791912 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		CDD53FC41A84384200791912 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		CDD53FC71A84384200791912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CDD53FC91A84384200791912 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		CDD53FCC1A84384200791912 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		CDD53FD21A84384200791912 /* SharpShopperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharpShopperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,9 +86,6 @@
 			isa = PBXGroup;
 			children = (
 				CDD53FBD1A84384200791912 /* AppDelegate.swift */,
-				CDD53FC21A84384200791912 /* MasterViewController.swift */,
-				CDD53FC41A84384200791912 /* DetailViewController.swift */,
-				CDD53FC61A84384200791912 /* Main.storyboard */,
 				CDD53FE81A8575F700791912 /* Grocery */,
 				CDD53FC91A84384200791912 /* Images.xcassets */,
 				CDD53FCB1A84384200791912 /* LaunchScreen.xib */,
@@ -221,7 +212,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDD53FC81A84384200791912 /* Main.storyboard in Resources */,
 				CDD53FEC1A85769000791912 /* GroceryTableViewController.xib in Resources */,
 				CDD53FCD1A84384200791912 /* LaunchScreen.xib in Resources */,
 				CDD53FCA1A84384200791912 /* Images.xcassets in Resources */,
@@ -246,8 +236,6 @@
 				CDD53FC11A84384200791912 /* SharpShopper.xcdatamodeld in Sources */,
 				CDD53FE61A8553FC00791912 /* GroceryTableViewCell.swift in Sources */,
 				CDD53FBE1A84384200791912 /* AppDelegate.swift in Sources */,
-				CDD53FC31A84384200791912 /* MasterViewController.swift in Sources */,
-				CDD53FC51A84384200791912 /* DetailViewController.swift in Sources */,
 				CDD53FE31A85525800791912 /* Grocery.swift in Sources */,
 				CDD53FEB1A85769000791912 /* GroceryTableViewController.swift in Sources */,
 			);
@@ -272,14 +260,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		CDD53FC61A84384200791912 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CDD53FC71A84384200791912 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		CDD53FCB1A84384200791912 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

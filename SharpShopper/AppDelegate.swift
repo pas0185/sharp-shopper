@@ -17,9 +17,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let navigationController = self.window!.rootViewController as UINavigationController
-        let controller = navigationController.topViewController as MasterViewController
-        controller.managedObjectContext = self.managedObjectContext
+
+        var groceryListViewController = GroceryTableViewController()
+        self.window?.rootViewController = groceryListViewController
+
+        
+        // from template code, come back to this later
+        // groceryListViewController.managedObjectContext = self.managedObjectContext
+        
         return true
     }
 
