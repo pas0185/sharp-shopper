@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		155953BB1ABE9570005777A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155953BA1ABE9570005777A4 /* Main.storyboard */; };
 		CDD53FBE1A84384200791912 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FBD1A84384200791912 /* AppDelegate.swift */; };
 		CDD53FC11A84384200791912 /* SharpShopper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FBF1A84384200791912 /* SharpShopper.xcdatamodeld */; };
 		CDD53FCA1A84384200791912 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDD53FC91A84384200791912 /* Images.xcassets */; };
@@ -16,7 +17,6 @@
 		CDD53FE61A8553FC00791912 /* GroceryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FE41A8553FC00791912 /* GroceryTableViewCell.swift */; };
 		CDD53FE71A8553FC00791912 /* GroceryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD53FE51A8553FC00791912 /* GroceryTableViewCell.xib */; };
 		CDD53FEB1A85769000791912 /* GroceryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FE91A85769000791912 /* GroceryTableViewController.swift */; };
-		CDD53FEC1A85769000791912 /* GroceryTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD53FEA1A85769000791912 /* GroceryTableViewController.xib */; };
 		CDF6D7B11A868B710061CE28 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF6D7B01A868B710061CE28 /* User.swift */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		155953BA1ABE9570005777A4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		CDD53FB81A84384200791912 /* SharpShopper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharpShopper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD53FBC1A84384200791912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDD53FBD1A84384200791912 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,7 +45,6 @@
 		CDD53FE41A8553FC00791912 /* GroceryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryTableViewCell.swift; sourceTree = "<group>"; };
 		CDD53FE51A8553FC00791912 /* GroceryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroceryTableViewCell.xib; sourceTree = "<group>"; };
 		CDD53FE91A85769000791912 /* GroceryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryTableViewController.swift; sourceTree = "<group>"; };
-		CDD53FEA1A85769000791912 /* GroceryTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroceryTableViewController.xib; sourceTree = "<group>"; };
 		CDF6D7B01A868B710061CE28 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,7 +87,9 @@
 		CDD53FBA1A84384200791912 /* SharpShopper */ = {
 			isa = PBXGroup;
 			children = (
+				155953BA1ABE9570005777A4 /* Main.storyboard */,
 				CDD53FBD1A84384200791912 /* AppDelegate.swift */,
+				CDD53FE91A85769000791912 /* GroceryTableViewController.swift */,
 				CDF6D7B21A8690C30061CE28 /* User */,
 				CDD53FE81A8575F700791912 /* Grocery */,
 				CDD53FC91A84384200791912 /* Images.xcassets */,
@@ -129,8 +131,6 @@
 				CDD53FE21A85525800791912 /* Grocery.swift */,
 				CDD53FE41A8553FC00791912 /* GroceryTableViewCell.swift */,
 				CDD53FE51A8553FC00791912 /* GroceryTableViewCell.xib */,
-				CDD53FE91A85769000791912 /* GroceryTableViewController.swift */,
-				CDD53FEA1A85769000791912 /* GroceryTableViewController.xib */,
 			);
 			name = Grocery;
 			sourceTree = "<group>";
@@ -223,7 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDD53FEC1A85769000791912 /* GroceryTableViewController.xib in Resources */,
+				155953BB1ABE9570005777A4 /* Main.storyboard in Resources */,
 				CDD53FCD1A84384200791912 /* LaunchScreen.xib in Resources */,
 				CDD53FCA1A84384200791912 /* Images.xcassets in Resources */,
 				CDD53FE71A8553FC00791912 /* GroceryTableViewCell.xib in Resources */,

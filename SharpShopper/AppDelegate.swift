@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
 
-        var groceryListViewController = GroceryTableViewController()
-        self.window?.rootViewController = groceryListViewController
+//        var groceryListViewController = GroceryTableViewController()
+//        self.window?.rootViewController = groceryListViewController
 
         
         // from template code, come back to this later

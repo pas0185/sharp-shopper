@@ -10,7 +10,7 @@ import UIKit
 
 class GroceryTableViewController: UITableViewController {
     
-    var groceryList = NSMutableArray()
+    var groceryList: [Grocery] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +26,8 @@ class GroceryTableViewController: UITableViewController {
         g2.points = 4500
         
         
-        groceryList.addObject(g1)
-        groceryList.addObject(g2)
+        groceryList.append(g1)
+        groceryList.append(g2)
         
         
 
@@ -56,21 +56,12 @@ class GroceryTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCellWithIdentifier("groceryTableCell") as UITableViewCell
         
-        // Configure the cell for this row...
+        var grocery: Grocery = groceryList[indexPath.row]
         
-//        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as GroceryTableViewCell
-        
-        var cell = GroceryTableViewCell()
-        
-        // Get the row index of this cell
-        var index = indexPath.row
-        
-        // Get the grocery corresponding to this index
-        var grocery = groceryList.objectAtIndex(index) as Grocery
-        
-        // Assign the grocery to this cell
-        cell.assignGrocery(grocery)
+        cell.textLabel?.text = grocery.name
         
         return cell
     }
@@ -90,7 +81,7 @@ class GroceryTableViewController: UITableViewController {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
             // Delete grocery from array
-            groceryList.removeObjectAtIndex(indexPath.row)
+            groceryList.removeAtIndex(indexPath.row)
             
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -98,7 +89,7 @@ class GroceryTableViewController: UITableViewController {
             var newGrocery = Grocery()
             newGrocery.name = "Bacon"
             newGrocery.points = 50
-            groceryList.addObject(newGrocery)
+            groceryList.append(newGrocery)
             
             tableView.reloadData()
             
