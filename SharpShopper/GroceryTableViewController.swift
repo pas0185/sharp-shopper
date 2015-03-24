@@ -42,6 +42,10 @@ class GroceryTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func testGetGroceryData() {
+        
+    }
 
     // MARK: - Table view data source
 
