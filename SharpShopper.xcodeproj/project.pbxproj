@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		155953BB1ABE9570005777A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155953BA1ABE9570005777A4 /* Main.storyboard */; };
+		155953BD1AC1B7D3005777A4 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 155953BC1AC1B7D3005777A4 /* Keys.plist */; };
 		CDD53FBE1A84384200791912 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FBD1A84384200791912 /* AppDelegate.swift */; };
 		CDD53FC11A84384200791912 /* SharpShopper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FBF1A84384200791912 /* SharpShopper.xcdatamodeld */; };
 		CDD53FCA1A84384200791912 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDD53FC91A84384200791912 /* Images.xcassets */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		155953BA1ABE9570005777A4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		155953BC1AC1B7D3005777A4 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		CDD53FB81A84384200791912 /* SharpShopper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharpShopper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD53FBC1A84384200791912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDD53FBD1A84384200791912 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			children = (
 				155953BA1ABE9570005777A4 /* Main.storyboard */,
 				CDD53FBD1A84384200791912 /* AppDelegate.swift */,
+				155953BC1AC1B7D3005777A4 /* Keys.plist */,
 				CDD53FE91A85769000791912 /* GroceryTableViewController.swift */,
 				CDF6D7B21A8690C30061CE28 /* User */,
 				CDD53FE81A8575F700791912 /* Grocery */,
@@ -227,6 +230,7 @@
 				CDD53FCD1A84384200791912 /* LaunchScreen.xib in Resources */,
 				CDD53FCA1A84384200791912 /* Images.xcassets in Resources */,
 				CDD53FE71A8553FC00791912 /* GroceryTableViewCell.xib in Resources */,
+				155953BD1AC1B7D3005777A4 /* Keys.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
