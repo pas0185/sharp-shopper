@@ -8,9 +8,9 @@
 
 import UIKit
 
-class GroceryTableViewController: UITableViewController {
+class GroceryTableViewController: UITableViewController, GroceryListUpdateDelegate {
     
-    var groceryList: [Grocery] = []
+    var groceryList = GroceryList()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +29,8 @@ class GroceryTableViewController: UITableViewController {
         g2.points = 4500
         
         
-        groceryList.append(g1)
-        groceryList.append(g2)
-        
+        groceryList.addGrocery(g1)
+        groceryList.addGrocery(g2)
         
 
         // Uncomment the following line to preserve selection between presentations
@@ -59,13 +58,17 @@ class GroceryTableViewController: UITableViewController {
             var grocery = Grocery()
             grocery.name = textField.text
             
-            self.groceryList.append(grocery)
+            self.groceryList.addGrocery(grocery)
             self.tableView.reloadData()
             
         }))
         
         self.presentViewController(alert, animated: true, completion: nil)
 
+    }
+    
+    func changedPurchasedStatus() {
+        self.tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,12 +85,20 @@ class GroceryTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
-        return 1
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return groceryList.count
+        
+        if section == 0 {
+            return self.groceryList.unpurchasedGroceries().count
+        }
+        else if section == 1 {
+            return self.groceryList.purchasedGroceries().count
+        }
+        
+        return 0
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -99,8 +110,16 @@ class GroceryTableViewController: UITableViewController {
             cell = tableView.dequeueReusableCellWithIdentifier(identifier) as? GroceryTableViewCell
         }
         
-        cell.myGrocery = self.groceryList[indexPath.row]
         
+        if indexPath.section == 0 {
+            cell.assignGrocery(self.groceryList.unpurchasedGroceries()[indexPath.row])
+        }
+            
+        else if indexPath.section == 1 {
+            cell.assignGrocery(self.groceryList.purchasedGroceries()[indexPath.row])
+        }
+        
+        cell.delegate = self
         return cell
     }
     
@@ -119,7 +138,7 @@ class GroceryTableViewController: UITableViewController {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
             // Delete grocery from array
-            groceryList.removeAtIndex(indexPath.row)
+//            groceryList.removeAtIndex(indexPath.row)
             
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
@@ -127,7 +146,7 @@ class GroceryTableViewController: UITableViewController {
             var newGrocery = Grocery()
             newGrocery.name = "Bacon"
             newGrocery.points = 50
-            groceryList.append(newGrocery)
+//            groceryList.append(newGrocery)
             
             tableView.reloadData()
             

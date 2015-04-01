@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol GroceryListUpdateDelegate {
+    func changedPurchasedStatus()
+}
+
 class GroceryTableViewCell: UITableViewCell {
 
-    var myGrocery: Grocery!
+    private var myGrocery: Grocery!
+    var delegate: GroceryListUpdateDelegate!
     
     @IBOutlet var buySwitch: UISwitch?
     @IBOutlet var nameLabel: UILabel?
@@ -51,11 +56,17 @@ class GroceryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func assignGrocery(grocery: Grocery) {
+        self.myGrocery = grocery
+    }
+    
     @IBAction func purchasedSwitchChanged(sender: AnyObject, forEvent event: UIEvent) {
 
         // If we flip the switch, flip myGrocery's purchased value
-        
-//        myGrocery.purchased = buySwitch?.on
+        if let senderSwitch = self.buySwitch {
+            self.myGrocery.purchased = senderSwitch.on
+            self.delegate.changedPurchasedStatus()
+        }
     }
     
 }
