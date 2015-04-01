@@ -61,11 +61,14 @@ class GroceryTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("groceryTableCell") as UITableViewCell
+        let identifier = "groceryTableCell"
+        var cell: GroceryTableViewCell! = tableView.dequeueReusableCellWithIdentifier(identifier) as? GroceryTableViewCell
+        if cell == nil {
+            tableView.registerNib(UINib(nibName: "GroceryTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
+            cell = tableView.dequeueReusableCellWithIdentifier(identifier) as? GroceryTableViewCell
+        }
         
-        var grocery: Grocery = groceryList[indexPath.row]
-        
-        cell.textLabel?.text = grocery.name
+        cell.myGrocery = self.groceryList[indexPath.row]
         
         return cell
     }

@@ -11,8 +11,13 @@
 
 @interface SupermarketAPI : NSObject
 
-#define CONTENT_TYPE    @"application/json;charset=UTF-8"
+/*******************************/
+/** Supermarket API Reference **/
+/*******************************/
+/* http://www.supermarketapi.com/Methods_v1.aspx */
+/*******************************/
 
+#define CONTENT_TYPE    @"application/json;charset=UTF-8"
 #define SUPERMARKET_API_URL @"http://www.SupermarketAPI.com/api.asmx/"
 
 + (NSData *)GET:(NSURL *)url;

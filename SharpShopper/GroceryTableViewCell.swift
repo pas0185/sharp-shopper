@@ -12,14 +12,37 @@ class GroceryTableViewCell: UITableViewCell {
 
     var myGrocery: Grocery!
     
-    @IBOutlet var buySwitch: UISwitch!
-    @IBOutlet var nameLabel: UILabel!
-    @IBOutlet var pointLabel: UILabel!
+    @IBOutlet var buySwitch: UISwitch?
+    @IBOutlet var nameLabel: UILabel?
     
+
+    init(grocery: Grocery) {
+        super.init(style: UITableViewCellStyle.Default, reuseIdentifier: "")
+        self.myGrocery = grocery
+    }
+
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
+        if let grocery = self.myGrocery {
+            self.buySwitch?.on = grocery.purchased
+            self.nameLabel?.text = grocery.name
+        }
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
@@ -32,17 +55,7 @@ class GroceryTableViewCell: UITableViewCell {
 
         // If we flip the switch, flip myGrocery's purchased value
         
-        myGrocery.purchased = buySwitch.on
+//        myGrocery.purchased = buySwitch?.on
     }
     
-    func assignGrocery(g: Grocery) {
-        
-        // Assign text to UILabels
-        nameLabel.text = myGrocery.name
-        pointLabel.text = String(myGrocery.points)
-        
-        // Assign state to the UISwitch
-        buySwitch.setOn(myGrocery.purchased, animated: false)
-        
-    }
 }
