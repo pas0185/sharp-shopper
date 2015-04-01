@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Grocery List-->
         <scene sceneID="KUv-3o-slX">
             <objects>
-                <tableViewController id="X8b-n5-0Zj" customClass="GroceryTableViewController" customModule="SharpShopper" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Grocery List" id="X8b-n5-0Zj" customClass="GroceryTableViewController" customModule="SharpShopper" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="22" sectionFooterHeight="22" id="WGH-0c-sAS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -17,7 +17,7 @@
                             <outlet property="delegate" destination="X8b-n5-0Zj" id="fmo-MM-jFt"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="5mt-36-xqt"/>
+                    <navigationItem key="navigationItem" title="Grocery List" id="5mt-36-xqt"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kON-xY-udn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
