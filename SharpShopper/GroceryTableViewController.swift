@@ -15,6 +15,9 @@ class GroceryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Add an 'add group' button to navbar
+        var addButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addGrocery")
+        self.navigationItem.rightBarButtonItem = addButton
         
         // Put dummy grocery data in the list
         var g1 = Grocery()
@@ -38,10 +41,38 @@ class GroceryTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
+    func addGrocery() {
+        
+        // Prompt user for name of new grocery
+        let alert = UIAlertController(title: "New Grocery", message: "Add a new grocery to your list", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addTextFieldWithConfigurationHandler({(textField: UITextField!) in
+            
+            textField.autocapitalizationType = .Words
+            textField.autocorrectionType = .Yes
+            
+        })
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler:{ (alertAction:UIAlertAction!) in
+            let textField = alert.textFields![0] as UITextField
+            
+            var grocery = Grocery()
+            grocery.name = textField.text
+            
+            self.groceryList.append(grocery)
+            self.tableView.reloadData()
+            
+        }))
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
     func testGetGroceryData() {
         
