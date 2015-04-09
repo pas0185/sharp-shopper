@@ -17,9 +17,8 @@ class GroceryTableViewCell: UITableViewCell {
     private var myGrocery: Grocery!
     var delegate: GroceryListUpdateDelegate!
     
-    @IBOutlet var buySwitch: UISwitch?
+    @IBOutlet weak var buyButton: UIButton!
     @IBOutlet var nameLabel: UILabel?
-    
 
     init(grocery: Grocery) {
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: "")
@@ -38,14 +37,14 @@ class GroceryTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        // Initialization code\
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
         if let grocery = self.myGrocery {
-            self.buySwitch?.on = grocery.purchased
+            self.buyButton.selected = grocery.purchased
             self.nameLabel?.text = grocery.name
         }
     }
@@ -60,13 +59,12 @@ class GroceryTableViewCell: UITableViewCell {
         self.myGrocery = grocery
     }
     
-    @IBAction func purchasedSwitchChanged(sender: AnyObject, forEvent event: UIEvent) {
-
-        // If we flip the switch, flip myGrocery's purchased value
-        if let senderSwitch = self.buySwitch {
-            self.myGrocery.purchased = senderSwitch.on
-            self.delegate.changedPurchasedStatus()
-        }
-    }
+    @IBAction func buyButtonPressed(sender: UIButton) {
+        
+        sender.selected = !sender.selected
+        self.myGrocery.purchased = sender.selected
+        
+        self.delegate.changedPurchasedStatus()
     
+    }
 }
