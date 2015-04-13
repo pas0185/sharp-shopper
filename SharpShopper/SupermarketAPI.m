@@ -10,43 +10,38 @@
 
 @implementation SupermarketAPI
 
-+ (NSData *)GET:(NSURL *)url
++ (NSString *)GET:(NSURL *)url
 {   // Gets the data from the provided URL
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    NSLog(@"Fetching from URL: %@", url);
     
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setURL:url];
     [request setHTTPMethod:@"GET"];
-    [request setValue:CONTENT_TYPE forHTTPHeaderField:@"Content-Type"];
     
-    // Fetch the response from the server in JSON format
-    NSHTTPURLResponse   *response;
-    NSError     *error;
-    NSData      *GETReply = [NSURLConnection sendSynchronousRequest:request
-                                                  returningResponse:&response
-                                                              error:&error];
-    NSString    *stringReply = [[NSString alloc] initWithBytes:[GETReply bytes]
-                                                        length:[GETReply length]
-                                                      encoding:NSASCIIStringEncoding];
-    if ([response statusCode] == 200)
-    {
-        return GETReply;
+    NSError *error = [[NSError alloc] init];
+    NSHTTPURLResponse *responseCode = nil;
+    
+    NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:&error];
+    
+    if ([responseCode statusCode] != 200) {
+        
+        NSLog(@"Error getting %@, HTTP status code %li", url, (long)[responseCode statusCode]);
+        return nil;
     }
-    NSLog(@"URL: %@", url);
-    NSLog(@"%@", stringReply);
-    return nil;
+    
+    return [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
 }
 
-+ (NSData *)getGroceries:(NSString *)searchText
++ (NSString *)getGroceries:(NSString *)searchText
 {
     NSString *API_KEY = [self getAPIKey];
     
     NSURL *url = [[NSURL alloc] initWithString:
                   [NSString stringWithFormat:@"%@/GetGroceries?APIKEY=%@&SearchText=%@",
                    SUPERMARKET_API_URL, API_KEY, searchText]];
-    
+
     return [self GET:url];
-    
     
 //http://www.SupermarketAPI.com/api.asmx/GetGroceries?APIKEY=APIKEY&SearchText=Apple
 
