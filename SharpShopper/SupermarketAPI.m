@@ -18,13 +18,15 @@
     
     Grocery *grocery;
     
+
+    /* Below from SupermarketAPI fields */
     NSMutableDictionary *product;
     
     NSMutableString *itemName;
     NSMutableString *itemDescription;
     NSMutableString *itemCategory;
     NSMutableString *itemImage;
-    
+    NSMutableString *itemID;
 }
 
 @end
@@ -119,7 +121,7 @@
         itemDescription = [NSMutableString new];
         itemCategory = [NSMutableString new];
         itemImage = [NSMutableString new];
-        
+        itemID = [NSMutableString new];
     }
 }
 
@@ -146,8 +148,10 @@
     if ([element isEqualToString:@"ItemImage"]) {
         [itemImage appendString:string];
     }
+    if ([element isEqualToString:@"ItemID"]) {
+        [itemID appendString:string];
+    }
 }
-
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     
@@ -158,7 +162,13 @@
     if ([elementName isEqualToString:@"Product"]) {
         grocery = [Grocery new];
         
-        // TODO: parse to actual grocery object
+        grocery.itemName = itemName;
+        grocery.itemDescription = itemDescription;
+        grocery.itemCategory = itemCategory;
+        grocery.itemID = itemID;
+        grocery.itemImageURL = itemImage;
+        
+        [groceries addObject:grocery];
     }
 }
 

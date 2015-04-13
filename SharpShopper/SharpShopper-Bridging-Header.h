@@ -3,5 +3,3 @@
 //
 
 #import "SupermarketAPI.h"
-#import "XMLParser.h"
-#import "SupermarketAPIXMLParser.h"

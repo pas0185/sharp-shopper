@@ -22,7 +22,6 @@
 
 - (NSMutableArray *)searchByProductName:(NSString *)name;
 
-
 - (NSMutableArray *)parseToGroceryArrayFromURL:(NSURL *)url;
 
 + (NSData *)GET:(NSURL *)url;

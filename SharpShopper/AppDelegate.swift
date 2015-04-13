@@ -18,9 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
 
-        var parser = SupermarketAPIXMLParser()
-        var url = SupermarketAPI.getGroceryURL("apple")
-        var groceries = parser.parseToGroceryArrayFromURL(url)
+        var parser = SupermarketAPI()
+        var groceries = parser.searchByProductName("apple")
+        println(groceries)
         
         
         // from template code, come back to this later
