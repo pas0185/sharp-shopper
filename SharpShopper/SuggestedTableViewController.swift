@@ -30,10 +30,17 @@ class SuggestedTableViewController: UITableViewController { // GroceryListUpdate
     }
 
     func fetchNetworkGroceries() {
+
+        var xmlObj = XMLParser()
+        var feeder = xmlObj.xmlParse()
         
-        var data = SupermarketAPI.getGroceries("apple")
+        println(feeder)
+//        var data = SupermarketAPI.getGroceryData("apple")
+//        var url = SupermarketAPI.getGroceryURL("apple")
+//        var fgList = GroceryList(url: url)
+//        println("Fetched data: \(data)")
         
-        println("Fetched data: \(data)")
+//        var fetchedGroceryList = GroceryList(XMLData: data)
         
     }
     

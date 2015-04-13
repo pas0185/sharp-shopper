@@ -10,7 +10,7 @@
 
 @implementation SupermarketAPI
 
-+ (NSString *)GET:(NSURL *)url
++ (NSData *)GET:(NSURL *)url
 {   // Gets the data from the provided URL
     
     NSLog(@"Fetching from URL: %@", url);
@@ -30,10 +30,10 @@
         return nil;
     }
     
-    return [[NSString alloc] initWithData:responseData encoding:NSUTF8StringEncoding];
+    return responseData;
 }
 
-+ (NSString *)getGroceries:(NSString *)searchText
++ (NSURL *)getGroceryURL:(NSString *)searchText
 {
     NSString *API_KEY = [self getAPIKey];
     
@@ -41,7 +41,8 @@
                   [NSString stringWithFormat:@"%@/GetGroceries?APIKEY=%@&SearchText=%@",
                    SUPERMARKET_API_URL, API_KEY, searchText]];
 
-    return [self GET:url];
+    return url;
+//    return [self GET:url];
     
 //http://www.SupermarketAPI.com/api.asmx/GetGroceries?APIKEY=APIKEY&SearchText=Apple
 
