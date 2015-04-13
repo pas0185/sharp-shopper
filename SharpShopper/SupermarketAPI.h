@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface SupermarketAPI : NSObject
+@interface SupermarketAPI : NSObject<NSXMLParserDelegate>
 
 /*************************************************/
 /********** Supermarket API Reference ************/
@@ -18,6 +18,12 @@
 /*************************************************/
 
 #define SUPERMARKET_API_URL @"http://www.SupermarketAPI.com/api.asmx"
+
+
+- (NSMutableArray *)searchByProductName:(NSString *)name;
+
+
+- (NSMutableArray *)parseToGroceryArrayFromURL:(NSURL *)url;
 
 + (NSData *)GET:(NSURL *)url;
 + (NSURL *)getGroceryURL:(NSString *)searchText;
