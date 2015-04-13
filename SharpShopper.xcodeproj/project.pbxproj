@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		152A89F11ADC261300E335B9 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 152A89F01ADC261300E335B9 /* XMLParser.m */; };
+		152A89F41ADC2A8A00E335B9 /* SupermarketAPIXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 152A89F31ADC2A8A00E335B9 /* SupermarketAPIXMLParser.m */; };
 		155953BB1ABE9570005777A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155953BA1ABE9570005777A4 /* Main.storyboard */; };
 		155953BD1AC1B7D3005777A4 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 155953BC1AC1B7D3005777A4 /* Keys.plist */; };
 		155953C11AC1B8A0005777A4 /* SupermarketAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 155953C01AC1B8A0005777A4 /* SupermarketAPI.m */; };
@@ -37,6 +38,8 @@
 /* Begin PBXFileReference section */
 		152A89EF1ADC261300E335B9 /* XMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLParser.h; path = SharpShopper/XMLParser.h; sourceTree = "<group>"; };
 		152A89F01ADC261300E335B9 /* XMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLParser.m; path = SharpShopper/XMLParser.m; sourceTree = "<group>"; };
+		152A89F21ADC2A8A00E335B9 /* SupermarketAPIXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SupermarketAPIXMLParser.h; path = SharpShopper/SupermarketAPIXMLParser.h; sourceTree = "<group>"; };
+		152A89F31ADC2A8A00E335B9 /* SupermarketAPIXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SupermarketAPIXMLParser.m; path = SharpShopper/SupermarketAPIXMLParser.m; sourceTree = "<group>"; };
 		155953BA1ABE9570005777A4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		155953BC1AC1B7D3005777A4 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		155953BE1AC1B89F005777A4 /* SharpShopper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SharpShopper-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -90,6 +93,8 @@
 		CDD53FAF1A84384200791912 = {
 			isa = PBXGroup;
 			children = (
+				152A89F21ADC2A8A00E335B9 /* SupermarketAPIXMLParser.h */,
+				152A89F31ADC2A8A00E335B9 /* SupermarketAPIXMLParser.m */,
 				152A89EF1ADC261300E335B9 /* XMLParser.h */,
 				152A89F01ADC261300E335B9 /* XMLParser.m */,
 				CDD53FBA1A84384200791912 /* SharpShopper */,
@@ -270,6 +275,7 @@
 				CDD53FBE1A84384200791912 /* AppDelegate.swift in Sources */,
 				CDD53FE31A85525800791912 /* Grocery.swift in Sources */,
 				155953C11AC1B8A0005777A4 /* SupermarketAPI.m in Sources */,
+				152A89F41ADC2A8A00E335B9 /* SupermarketAPIXMLParser.m in Sources */,
 				152A89F11ADC261300E335B9 /* XMLParser.m in Sources */,
 				CDD53FEB1A85769000791912 /* GroceryTableViewController.swift in Sources */,
 			);
