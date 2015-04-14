@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class GroceryTableViewController: UITableViewController, /* GroceryListUpdateDelegate, */ NSFetchedResultsControllerDelegate {
     

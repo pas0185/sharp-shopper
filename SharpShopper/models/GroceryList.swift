@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Foundation
+import CoreData
 
 class GroceryList: NSObject, NSXMLParserDelegate {
     
@@ -43,56 +45,7 @@ class GroceryList: NSObject, NSXMLParserDelegate {
     func addGrocery(grocery: Grocery) {
         // Add new grocery to list
         self.groceryList.append(grocery)
-        
-        // Insert into Core Data
-
-        let coreGrocery = NSEntityDescription.insertNewObjectForEntityForName("Grocery", inManagedObjectContext: self.managedObjectContext!) as! Grocery
-
-
-        // ASSIGN FIELDS FROM EXISTING GROCERY OBJECT??
-        
-        
-        // ***** TODO ***** //
-        var attributes = GroceryParser.parseToDictionary(grocery)
-
-        
-        // Save our changes
-        self.saveToCoreData()
     }
-    
-    // MARK: - Core Data
-    func saveToCoreData() {
-        
-        if let dataMgr = CoreDataManager.sharedManager() {
-            dataMgr.saveDataInManagedContextUsingBlock(nil)
-        }
-    }
-    
-    class func restoreFromCoreData(delegate: NSFetchedResultsControllerDelegate) -> GroceryList {
-    
-        // Get the NSFetchedReultsController from the Core Data Manager
-        
-        var sortDescriptor = NSSortDescriptor(key: "itemName", ascending: true)
-//        var sectionNameKeyPath = ""
-//        var predicate = NSPredicate(format: "Grocery.name == %@")
-        
-        if let fetchedResultsController = CoreDataManager.sharedManager().fetchEntitiesWithClassName("Grocery", sortDescriptors: [sortDescriptor], sectionNameKeyPath: nil, predicate: nil) {
-            
-            var error: NSError?
-            fetchedResultsController.performFetch(&error)
-            
-            if error != nil {
-                println("Error restoring Groceries from Core Data")
-            }
-            
-            // TODO: something with fetchedResultsController
-            fetchedResultsController.delegate = delegate
-            
-        }
-        
-        return GroceryList()
-    }
-    
     
     // MARK: - Helper Methods
     
