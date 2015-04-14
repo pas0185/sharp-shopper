@@ -152,10 +152,10 @@
 			isa = PBXGroup;
 			children = (
 				CDD53FE91A85769000791912 /* GroceryTableViewController.swift */,
+				155953C31ACB9A4A005777A4 /* GroceryList.swift */,
 				CDD53FE21A85525800791912 /* Grocery.swift */,
 				CDD53FE41A8553FC00791912 /* GroceryTableViewCell.swift */,
 				CDD53FE51A8553FC00791912 /* GroceryTableViewCell.xib */,
-				155953C31ACB9A4A005777A4 /* GroceryList.swift */,
 				154F1C261ADD929100EBA76C /* GroceryParser.swift */,
 			);
 			name = "Grocery List";

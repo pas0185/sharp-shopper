@@ -40,7 +40,7 @@ class GroceryTableViewController: UITableViewController, /* GroceryListUpdateDel
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler:{ (alertAction:UIAlertAction!) in
             let textField = alert.textFields![0] as! UITextField
-            
+
             var grocery = Grocery()
             grocery.itemName = textField.text
             
