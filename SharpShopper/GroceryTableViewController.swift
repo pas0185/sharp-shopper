@@ -20,18 +20,10 @@ class GroceryTableViewController: UITableViewController, /* GroceryListUpdateDel
         
 //        groceryList.makeDummyList()
         
-        
-//        var userGroceryList = GroceryList.restoreFromCoreData(self)
 
         // Add an 'add group' button to navbar
         var addButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addGrocery")
         self.navigationItem.rightBarButtonItem = addButton
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     func addGrocery() {
@@ -50,7 +42,7 @@ class GroceryTableViewController: UITableViewController, /* GroceryListUpdateDel
             let textField = alert.textFields![0] as! UITextField
             
             var grocery = Grocery()
-            grocery.name = textField.text
+            grocery.itemName = textField.text
             
             self.groceryList.addGrocery(grocery)
             self.tableView.reloadData()
@@ -104,7 +96,6 @@ class GroceryTableViewController: UITableViewController, /* GroceryListUpdateDel
             cell = tableView.dequeueReusableCellWithIdentifier(identifier) as? GroceryTableViewCell
         }
         
-        
         if indexPath.section == 0 {
             cell.assignGrocery(self.groceryList.unpurchasedGroceries()[indexPath.row])
         }
@@ -138,8 +129,6 @@ class GroceryTableViewController: UITableViewController, /* GroceryListUpdateDel
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
             
             var newGrocery = Grocery()
-            newGrocery.name = "Bacon"
-            newGrocery.points = 50
 //            groceryList.append(newGrocery)
             
             tableView.reloadData()

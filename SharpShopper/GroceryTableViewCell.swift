@@ -43,7 +43,7 @@ class GroceryTableViewCell: UITableViewCell {
         
         if let grocery = self.myGrocery {
             self.buyButton.selected = grocery.purchased
-            self.nameLabel?.text = grocery.name
+            self.nameLabel?.text = grocery.itemName
         }
     }
 

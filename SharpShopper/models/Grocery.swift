@@ -36,10 +36,4 @@ class Grocery: NSManagedObject {
         
         return newGrocery
     }
-    
-    
-    /* Unused - remove? */
-    var id: Int = 0
-    var points: Int = 0
-    var name: String = ""
 }
