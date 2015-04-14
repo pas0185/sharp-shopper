@@ -8,30 +8,23 @@
 
 import UIKit
 
-class GroceryTableViewController: UITableViewController, GroceryListUpdateDelegate {
+class GroceryTableViewController: UITableViewController, /* GroceryListUpdateDelegate, */ NSFetchedResultsControllerDelegate {
     
     var groceryList = GroceryList()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.groceryList.fetchGroceries()
+        
+//        groceryList.makeDummyList()
+        
+        
+//        var userGroceryList = GroceryList.restoreFromCoreData(self)
+
         // Add an 'add group' button to navbar
         var addButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addGrocery")
         self.navigationItem.rightBarButtonItem = addButton
-        
-        // Put dummy grocery data in the list
-        var g1 = Grocery()
-        g1.name = "bacon"
-        g1.points = 400
-        
-        var g2 = Grocery()
-        g2.name = "steak"
-        g2.points = 4500
-        
-        
-        groceryList.addGrocery(g1)
-        groceryList.addGrocery(g2)
-        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -119,7 +112,7 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
             cell.assignGrocery(self.groceryList.purchasedGroceries()[indexPath.row])
         }
         
-        cell.delegate = self
+//        cell.delegate = self
         return cell
     }
     

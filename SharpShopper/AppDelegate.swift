@@ -14,13 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-
-        var parser = SupermarketAPI()
-        var groceries = parser.searchByProductName("apple")
-        println(groceries)
+        
+        
+//        var parser = SupermarketAPI()
+//        var groceries = parser.searchByProductName("apple")
+//        println(groceries)
         
         
         // from template code, come back to this later
@@ -53,6 +53,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
 
+    // MARK: - NSFetchedResultsControllerDelegate Methods
+    
+    
     // MARK: - Core Data stack
 
     lazy var applicationDocumentsDirectory: NSURL = {
