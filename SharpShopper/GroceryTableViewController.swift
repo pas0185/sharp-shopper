@@ -78,10 +78,10 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
         // Return the number of rows in the section.
         
         if section == 0 {
-            return self.groceryList.unpurchasedGroceries().count
+            return self.groceryList.unpurchasedGroceries.count
         }
         else if section == 1 {
-            return self.groceryList.purchasedGroceries().count
+            return self.groceryList.purchasedGroceries.count
         }
         
         return 0
@@ -92,16 +92,13 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
         let cell = tableView.dequeueReusableCellWithIdentifier("GroceryCell") as? GroceryTableViewCell
         
         if indexPath.section == 0 {
-            var grocery = self.groceryList.unpurchasedGroceries()[indexPath.row]
+            var grocery = self.groceryList.unpurchasedGroceries[indexPath.row]
             cell?.assignGrocery(grocery)
-//            cell.assignGrocery(self.groceryList.unpurchasedGroceries()[indexPath.row])
         }
             
         else if indexPath.section == 1 {
-            var grocery = self.groceryList.purchasedGroceries()[indexPath.row]
+            var grocery = self.groceryList.purchasedGroceries[indexPath.row]
             cell?.assignGrocery(grocery)
-            
-//            cell.assignGrocery(self.groceryList.purchasedGroceries()[indexPath.row])
         }
         
 //        cell.delegate = self
@@ -119,12 +116,12 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
             // Delete the grocery from the list
             
             if indexPath.section == 0 {
-                let grocery = self.groceryList.unpurchasedGroceries()[indexPath.row]
+                let grocery = self.groceryList.unpurchasedGroceries[indexPath.row]
                 self.groceryList.deleteGrocery(grocery)
             }
                 
             else if indexPath.section == 1 {
-                let grocery = self.groceryList.purchasedGroceries()[indexPath.row]
+                let grocery = self.groceryList.purchasedGroceries[indexPath.row]
                 self.groceryList.deleteGrocery(grocery)
             }
             

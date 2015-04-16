@@ -10,39 +10,48 @@ import UIKit
 import Foundation
 import CoreData
 
-// TODO: rename class to indicate CoreData interaction ie CoreGroceryList SSManagedGroceryList
+// TODO: rename class to indicate CoreData interaction i.e. CoreGroceryList, or SSManagedGroceryList
 class GroceryList: NSObject, NSXMLParserDelegate {
     
-     var items: [Grocery] = []
-
-    // Retreive the managedObjectContext from AppDelegate
+    var items: [Grocery] = []
+    var delegate: GroceryListUpdateDelegate?
+    
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
- 
+    
+    var purchasedGroceries: [Grocery]
+    {
+        get
+        {
+            return items.filter({$0.purchased})
+        }
+    }
+    
+    var unpurchasedGroceries: [Grocery]
+    {
+        get
+        {
+            return items.filter({!$0.purchased})
+        }
+    }
     
     override init() {
         super.init()
     }
     
-    func makeDummyList() {
-    
-        if let moc = self.managedObjectContext {
-            
-            Grocery.createInManagedObjectContext(moc, itemID: "", itemName: "Juicy Fruit", itemDescription: "", itemCategory: "Juice", itemImageURL: "", purchased: false, price: 3.43)
-            
-            Grocery.createInManagedObjectContext(moc, itemID: "", itemName: "Oranges", itemDescription: "", itemCategory: "Fruits", itemImageURL: "", purchased: false, price: 1.27)
-            
-            moc.save(nil)
-        }
-    }
-    
-    func fetchGroceries() {
+    func fetchGroceriesFromCoreData() {
         let fetchRequest = NSFetchRequest(entityName: "Grocery")
+        
+        // Have purchased/unpurchased separated at the git go
+        let sortDescriptor = NSSortDescriptor(key: "purchased", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        
+        // Fetch all groceries from Core Data
         if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Grocery] {
             items = fetchResults
+            println("Finished fetching groceries from Core Data")
         }
     }
-    
-    
     
     func addGrocery(grocery: Grocery) {
         // Add new grocery to list
@@ -53,33 +62,24 @@ class GroceryList: NSObject, NSXMLParserDelegate {
             
             // Append this grocery to this GroceryList
             self.items.append(grocery)
+            
+            // Save in Core Data
+            self.appDelegate.saveContext()
+            
+            // Tell delegate that data has changed
+            self.delegate?.groceryListDataDidChange()
         }
     }
     
-    // MARK: - Helper Methods
-    
-    func purchasedGroceries() -> [Grocery] {
-        // Filter list to return only ones that have been purchased
-        var purchasedList: [Grocery] = []
-        for grocery in self.items {
-            if grocery.purchased {
-                purchasedList.append(grocery)
-            }
-        }
+    func deleteGrocery(grocery: Grocery) {
         
-        return purchasedList
-    }
-    
-    func unpurchasedGroceries() -> [Grocery] {
-        var unpurchasedList: [Grocery] = []
+        // Delete it from managed object context
+        self.managedObjectContext?.deleteObject(grocery)
         
-        for grocery in self.items {
-            if !grocery.purchased {
-                unpurchasedList.append(grocery)
-            }
-        }
+        // Refresh list from Core Data
+        self.fetchGroceriesFromCoreData()
         
-        return unpurchasedList
-    }
-
+        // Tell delegate that data has changed
+        self.delegate?.groceryListDataDidChange()
+    }    
 }
