@@ -12,15 +12,15 @@ import CoreData
 class Grocery: NSManagedObject {
 
     /* SupermarketAPI fields */
-    var itemID: String?
-    var itemName: String?
-    var itemDescription: String?
-    var itemCategory: String?
-    var itemImageURL: String?
+    @NSManaged var itemID: String
+    @NSManaged var itemName: String
+    @NSManaged var itemDescription: String
+    @NSManaged var itemCategory: String
+    @NSManaged var itemImageURL: String
     
     /* User status fields */
-    var purchased: Bool = false
-    var price: Double?
+    @NSManaged var purchased: Bool
+    @NSManaged var price: Double
 
     class func createInManagedObjectContext(moc: NSManagedObjectContext, itemID: String, itemName: String, itemDescription: String, itemCategory: String, itemImageURL: String, purchased: Bool, price: Double) -> Grocery {
         let newGrocery = NSEntityDescription.insertNewObjectForEntityForName("Grocery", inManagedObjectContext: moc) as! Grocery

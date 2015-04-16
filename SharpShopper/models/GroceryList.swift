@@ -43,8 +43,8 @@ class GroceryList: NSObject, NSXMLParserDelegate {
         let fetchRequest = NSFetchRequest(entityName: "Grocery")
         
         // Have purchased/unpurchased separated at the git go
-        let sortDescriptor = NSSortDescriptor(key: "purchased", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
+//        let sortDescriptor = NSSortDescriptor(key: "purchased", ascending: true)
+//        fetchRequest.sortDescriptors = [sortDescriptor]
         
         // Fetch all groceries from Core Data
         if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Grocery] {
@@ -81,5 +81,5 @@ class GroceryList: NSObject, NSXMLParserDelegate {
         
         // Tell delegate that data has changed
         self.delegate?.groceryListDataDidChange()
-    }    
+    }
 }

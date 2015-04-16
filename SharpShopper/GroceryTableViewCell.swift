@@ -14,7 +14,7 @@ class GroceryTableViewCell: UITableViewCell {
     var delegate: GroceryListUpdateDelegate?
     
     @IBOutlet weak var buyButton: UIButton!
-    @IBOutlet var nameLabel: UILabel?
+    @IBOutlet weak var nameLabel: UILabel!
 
     init(grocery: Grocery) {
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: "")
@@ -36,10 +36,11 @@ class GroceryTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        println("layint out: \(myGrocery.itemName)")
+//        println("laying out: \(myGrocery.itemName)")
         if let grocery = self.myGrocery {
+            println("not nil")
             self.buyButton.selected = grocery.purchased
-            self.nameLabel?.text = grocery.itemName
+            self.nameLabel.text = grocery.itemName
         }
     }
 
