@@ -40,7 +40,7 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler:{ (alertAction:UIAlertAction!) in
             let textField = alert.textFields![0] as! UITextField
-
+            
             var groceryName = textField.text
             if let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
                 var grocery = Grocery.createInManagedObjectContext(moc, itemID: "", itemName: groceryName, itemDescription: "", itemCategory: "", itemImageURL: "", purchased: false, price: 0)

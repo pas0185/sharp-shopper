@@ -36,20 +36,4 @@ class Grocery: NSManagedObject {
         
         return newGrocery
     }
-    
-    class func createInManagedObjectContext(moc: NSManagedObjectContext, grocery: Grocery) -> Grocery {
-        
-        let newGrocery = NSEntityDescription.insertNewObjectForEntityForName("Grocery", inManagedObjectContext: moc) as! Grocery
-        
-        newGrocery.itemID = grocery.itemID
-        newGrocery.itemName = grocery.itemName
-        newGrocery.itemDescription = grocery.itemDescription
-        newGrocery.itemCategory = grocery.itemCategory
-        newGrocery.itemImageURL = grocery.itemImageURL
-        
-        newGrocery.purchased = grocery.purchased
-        newGrocery.price = grocery.price
-        
-        return newGrocery
-    }
 }

@@ -36,9 +36,7 @@ class GroceryTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-//        println("laying out: \(myGrocery.itemName)")
         if let grocery = self.myGrocery {
-            println("not nil")
             self.buyButton.selected = grocery.purchased
             self.nameLabel.text = grocery.itemName
         }

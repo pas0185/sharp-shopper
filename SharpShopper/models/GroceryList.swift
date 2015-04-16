@@ -42,10 +42,6 @@ class GroceryList: NSObject, NSXMLParserDelegate {
     func fetchGroceriesFromCoreData() {
         let fetchRequest = NSFetchRequest(entityName: "Grocery")
         
-        // Have purchased/unpurchased separated at the git go
-//        let sortDescriptor = NSSortDescriptor(key: "purchased", ascending: true)
-//        fetchRequest.sortDescriptors = [sortDescriptor]
-        
         // Fetch all groceries from Core Data
         if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Grocery] {
             items = fetchResults
@@ -56,19 +52,14 @@ class GroceryList: NSObject, NSXMLParserDelegate {
     func addGrocery(grocery: Grocery) {
         // Add new grocery to list
 
-        if let moc = self.managedObjectContext {
-            // Create this grocery in managed core data
-            var grocery = Grocery.createInManagedObjectContext(moc, grocery: grocery)
-            
-            // Append this grocery to this GroceryList
-            self.items.append(grocery)
-            
-            // Save in Core Data
-            self.appDelegate.saveContext()
-            
-            // Tell delegate that data has changed
-            self.delegate?.groceryListDataDidChange()
-        }
+        // Append this grocery to this GroceryList
+        self.items.append(grocery)
+        
+        // Save in Core Data
+        self.appDelegate.saveContext()
+        
+        // Tell delegate that data has changed
+        self.delegate?.groceryListDataDidChange()
     }
     
     func deleteGrocery(grocery: Grocery) {
