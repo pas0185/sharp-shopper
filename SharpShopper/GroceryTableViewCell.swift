@@ -15,6 +15,7 @@ class GroceryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var gImageView: UIImageView!
 
     init(grocery: Grocery) {
         super.init(style: UITableViewCellStyle.Default, reuseIdentifier: "")
@@ -39,6 +40,24 @@ class GroceryTableViewCell: UITableViewCell {
         if let grocery = self.myGrocery {
             self.buyButton.selected = grocery.purchased
             self.nameLabel.text = grocery.itemName
+            
+            self.gImageView.image = nil
+            if let imageURL = NSURL(string: grocery.itemImageURL) {
+                println("Found image URL on Grocery object")
+                
+                // TODO: Dispatch to another thread here
+                if let imageData = NSData(contentsOfURL: imageURL) {
+                    println("image URL has data")
+
+                    if let image = UIImage(data: imageData) {
+                        println("UIImage successfully built from data")
+                        
+                        // TODO: Dispatch back to main thread
+                            self.gImageView.image = image
+                    }
+                }
+            }
+            
         }
     }
 

@@ -18,6 +18,9 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
         
         self.tableView.registerNib(UINib(nibName: "GroceryTableViewCell", bundle: nil), forCellReuseIdentifier: "GroceryCell")
         
+        self.tableView.estimatedRowHeight = 70;
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        
         self.groceryList.delegate = self
         self.groceryList.fetchGroceriesFromCoreData()
 
@@ -118,6 +121,7 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
             if indexPath.section == 0 {
                 let grocery = self.groceryList.unpurchasedGroceries[indexPath.row]
                 self.groceryList.deleteGrocery(grocery)
+                
             }
                 
             else if indexPath.section == 1 {
@@ -125,8 +129,7 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
                 self.groceryList.deleteGrocery(grocery)
             }
             
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            
+            tableView.reloadData()
         }
         else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
