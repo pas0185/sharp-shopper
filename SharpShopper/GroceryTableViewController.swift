@@ -9,23 +9,23 @@
 import UIKit
 import CoreData
 
-class GroceryTableViewController: UITableViewController, /* GroceryListUpdateDelegate, */ NSFetchedResultsControllerDelegate {
+class GroceryTableViewController: UITableViewController, GroceryListUpdateDelegate {
     
     var groceryList = GroceryList()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.groceryList.fetchGroceries()
+        self.tableView.registerNib(UINib(nibName: "GroceryTableViewCell", bundle: nil), forCellReuseIdentifier: "GroceryCell")
         
-//        groceryList.makeDummyList()
-        
+        self.groceryList.delegate = self
+        self.groceryList.fetchGroceriesFromCoreData()
 
-        // Add an 'add group' button to navbar
-        var addButton: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addGrocery")
-        self.navigationItem.rightBarButtonItem = addButton
+        // 'Edit' and 'Add' buttons
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addGrocery")
     }
-
+    
     func addGrocery() {
         
         // Prompt user for name of new grocery
@@ -41,19 +41,20 @@ class GroceryTableViewController: UITableViewController, /* GroceryListUpdateDel
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler:{ (alertAction:UIAlertAction!) in
             let textField = alert.textFields![0] as! UITextField
 
-            var grocery = Grocery()
-            grocery.itemName = textField.text
-            
-            self.groceryList.addGrocery(grocery)
-            self.tableView.reloadData()
-            
+            var groceryName = textField.text
+            if let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
+                var grocery = Grocery.createInManagedObjectContext(moc, itemID: "", itemName: groceryName, itemDescription: "", itemCategory: "", itemImageURL: "", purchased: false, price: 0)
+                
+                self.groceryList.addGrocery(grocery)
+                self.tableView.reloadData()
+            }
         }))
         
         self.presentViewController(alert, animated: true, completion: nil)
 
     }
     
-    func changedPurchasedStatus() {
+    func groceryListDataDidChange() {
         self.tableView.reloadData()
     }
     
@@ -62,13 +63,12 @@ class GroceryTableViewController: UITableViewController, /* GroceryListUpdateDel
         // Dispose of any resources that can be recreated.
     }
     
-    
     func testGetGroceryData() {
         
     }
 
-    // MARK: - Table view data source
-
+    // MARK: - TableView Methods
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
         return 2
@@ -89,29 +89,26 @@ class GroceryTableViewController: UITableViewController, /* GroceryListUpdateDel
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let identifier = "groceryTableCell"
-        var cell: GroceryTableViewCell! = tableView.dequeueReusableCellWithIdentifier(identifier) as? GroceryTableViewCell
-        if cell == nil {
-            tableView.registerNib(UINib(nibName: "GroceryTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
-            cell = tableView.dequeueReusableCellWithIdentifier(identifier) as? GroceryTableViewCell
-        }
+        let cell = tableView.dequeueReusableCellWithIdentifier("GroceryCell") as? GroceryTableViewCell
         
         if indexPath.section == 0 {
-            cell.assignGrocery(self.groceryList.unpurchasedGroceries()[indexPath.row])
+            var grocery = self.groceryList.unpurchasedGroceries()[indexPath.row]
+            cell?.assignGrocery(grocery)
+//            cell.assignGrocery(self.groceryList.unpurchasedGroceries()[indexPath.row])
         }
             
         else if indexPath.section == 1 {
-            cell.assignGrocery(self.groceryList.purchasedGroceries()[indexPath.row])
+            var grocery = self.groceryList.purchasedGroceries()[indexPath.row]
+            cell?.assignGrocery(grocery)
+            
+//            cell.assignGrocery(self.groceryList.purchasedGroceries()[indexPath.row])
         }
         
 //        cell.delegate = self
-        return cell
+        return cell!
     }
     
-    // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        
         // Return true because we will allow users to add and delete groceries
         return true
     }
@@ -119,13 +116,22 @@ class GroceryTableViewController: UITableViewController, /* GroceryListUpdateDel
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            // Delete the row from the data source
+            // Delete the grocery from the list
+            
+            if indexPath.section == 0 {
+                let grocery = self.groceryList.unpurchasedGroceries()[indexPath.row]
+                self.groceryList.deleteGrocery(grocery)
+            }
+                
+            else if indexPath.section == 1 {
+                let grocery = self.groceryList.purchasedGroceries()[indexPath.row]
+                self.groceryList.deleteGrocery(grocery)
+            }
+            
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
             
-            // Delete grocery from array
-//            groceryList.removeAtIndex(indexPath.row)
-            
-        } else if editingStyle == .Insert {
+        }
+        else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
             
             var newGrocery = Grocery()

@@ -8,14 +8,10 @@
 
 import UIKit
 
-protocol GroceryListUpdateDelegate {
-    func changedPurchasedStatus()
-}
-
 class GroceryTableViewCell: UITableViewCell {
 
     private var myGrocery: Grocery!
-    var delegate: GroceryListUpdateDelegate!
+    var delegate: GroceryListUpdateDelegate?
     
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet var nameLabel: UILabel?
@@ -40,7 +36,7 @@ class GroceryTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
+        println("layint out: \(myGrocery.itemName)")
         if let grocery = self.myGrocery {
             self.buyButton.selected = grocery.purchased
             self.nameLabel?.text = grocery.itemName
@@ -62,7 +58,7 @@ class GroceryTableViewCell: UITableViewCell {
         sender.selected = !sender.selected
         self.myGrocery.purchased = sender.selected
         
-        self.delegate.changedPurchasedStatus()
+        self.delegate?.groceryListDataDidChange()
     
     }
 }
