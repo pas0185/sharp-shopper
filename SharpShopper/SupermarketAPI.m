@@ -11,13 +11,12 @@
 
 @interface SupermarketAPI() {
     
+    NSManagedObjectContext *managedObjectContext;
+    
     NSXMLParser *parser;
     NSMutableArray *groceries;
     
     NSString *element;
-    
-    Grocery *grocery;
-    
 
     /* Below from SupermarketAPI fields */
     NSMutableDictionary *product;
@@ -32,6 +31,17 @@
 @end
 
 @implementation SupermarketAPI
+
+
+- (id)init{
+    self = [super init];
+    if (self) {
+        
+        managedObjectContext = ((AppDelegate *)([UIApplication sharedApplication].delegate)).managedObjectContext;
+    }
+    
+    return self;
+}
 
 - (NSMutableArray *)searchByProductName:(NSString *)name {
     
@@ -113,7 +123,6 @@
     }
     
     if ([element isEqualToString:@"Product"]) {
-        NSLog(@"started parsing a product");
         
         product = [NSMutableDictionary new];
         
@@ -160,15 +169,35 @@
     }
     
     if ([elementName isEqualToString:@"Product"]) {
-        grocery = [Grocery new];
         
+        // TODO: make this grocery only a temporary copy; with the use of separate Core Data context
+        
+        // FOR NOW: make it and save like a normal one
+//        Ivar grocery = (__bridge Ivar)([Grocery createInManagedObjectContext:managedObjectContext itemID:itemID itemName:itemName itemDescription:itemDescription itemCategory:itemCategory itemImageURL:itemImage purchased:NO price:0]);
+        
+        NSDictionary *groceryProperties = [[NSMutableDictionary alloc] init];
+        
+        [groceryProperties setValue:itemName forKey:@"itemName"];
+        [groceryProperties setValue:itemDescription forKey:@"itemDescription"];
+        [groceryProperties setValue:itemCategory forKey:@"itemCategory"];
+        [groceryProperties setValue:itemID forKey:@"itemID"];
+        [groceryProperties setValue:itemImage forKey:@"itemImage"];
+        
+        GroceryParser 
+        
+        // ****************** //
+        // **** BOOKMARK **** //
+        // ****************** //
+        
+        // Parse this network data into a managed object
+        Grocery *grocery = [Grocery new];
         grocery.itemName = itemName;
         grocery.itemDescription = itemDescription;
         grocery.itemCategory = itemCategory;
         grocery.itemID = itemID;
         grocery.itemImageURL = itemImage;
         
-        [groceries addObject:grocery];
+        [groceries addObject:(grocery)];
     }
 }
 

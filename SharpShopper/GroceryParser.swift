@@ -16,11 +16,11 @@ class GroceryParser: NSObject {
         [
             /* SupermarketAPI fields */
 
-            "itemID": grocery.itemID!,
-            "itemName": grocery.itemName!,
-            "itemDescription": grocery.itemDescription!,
-            "itemCategory": grocery.itemCategory!,
-            "itemImageURL": grocery.itemImageURL!
+            "itemID": grocery.itemID,
+            "itemName": grocery.itemName,
+            "itemDescription": grocery.itemDescription,
+            "itemCategory": grocery.itemCategory,
+            "itemImageURL": grocery.itemImageURL
         ]
         
         

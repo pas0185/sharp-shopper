@@ -52,6 +52,8 @@ class GroceryList: NSObject, NSXMLParserDelegate {
     func addGrocery(grocery: Grocery) {
         // Add new grocery to list
 
+        grocery.delegate = self.delegate
+        
         // Append this grocery to this GroceryList
         self.items.append(grocery)
         

@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		155953BB1ABE9570005777A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155953BA1ABE9570005777A4 /* Main.storyboard */; };
 		155953BD1AC1B7D3005777A4 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 155953BC1AC1B7D3005777A4 /* Keys.plist */; };
-		155953C11AC1B8A0005777A4 /* SupermarketAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 155953C01AC1B8A0005777A4 /* SupermarketAPI.m */; };
 		155953C41ACB9A4A005777A4 /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155953C31ACB9A4A005777A4 /* GroceryList.swift */; };
 		15D40D451ADF30ED005AA474 /* GroceryListUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D40D441ADF30ED005AA474 /* GroceryListUpdateDelegate.swift */; };
+		15D40D491AE07C99005AA474 /* GroceryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D40D481AE07C99005AA474 /* GroceryParser.swift */; };
+		15D40D4B1AE07F2A005AA474 /* SupermarketAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D40D4A1AE07F2A005AA474 /* SupermarketAPI.swift */; };
 		15E8C5BD1AD60E0600AF91EF /* SuggestedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E8C5BC1AD60E0600AF91EF /* SuggestedTableViewController.swift */; };
 		CDD53FBE1A84384200791912 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FBD1A84384200791912 /* AppDelegate.swift */; };
 		CDD53FC11A84384200791912 /* SharpShopper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FBF1A84384200791912 /* SharpShopper.xcdatamodeld */; };
@@ -39,10 +40,10 @@
 		155953BA1ABE9570005777A4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		155953BC1AC1B7D3005777A4 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		155953BE1AC1B89F005777A4 /* SharpShopper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SharpShopper-Bridging-Header.h"; sourceTree = "<group>"; };
-		155953BF1AC1B8A0005777A4 /* SupermarketAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SupermarketAPI.h; sourceTree = "<group>"; };
-		155953C01AC1B8A0005777A4 /* SupermarketAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SupermarketAPI.m; sourceTree = "<group>"; };
 		155953C31ACB9A4A005777A4 /* GroceryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroceryList.swift; path = models/GroceryList.swift; sourceTree = "<group>"; };
 		15D40D441ADF30ED005AA474 /* GroceryListUpdateDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListUpdateDelegate.swift; sourceTree = "<group>"; };
+		15D40D481AE07C99005AA474 /* GroceryParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryParser.swift; sourceTree = "<group>"; };
+		15D40D4A1AE07F2A005AA474 /* SupermarketAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupermarketAPI.swift; sourceTree = "<group>"; };
 		15E8C5BC1AD60E0600AF91EF /* SuggestedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestedTableViewController.swift; sourceTree = "<group>"; };
 		CDD53FB81A84384200791912 /* SharpShopper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharpShopper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD53FBC1A84384200791912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,8 +81,7 @@
 		155953C21ACB8F94005777A4 /* Suggested Groceries */ = {
 			isa = PBXGroup;
 			children = (
-				155953BF1AC1B8A0005777A4 /* SupermarketAPI.h */,
-				155953C01AC1B8A0005777A4 /* SupermarketAPI.m */,
+				15D40D4A1AE07F2A005AA474 /* SupermarketAPI.swift */,
 				15E8C5BC1AD60E0600AF91EF /* SuggestedTableViewController.swift */,
 			);
 			name = "Suggested Groceries";
@@ -151,6 +151,7 @@
 		CDD53FE81A8575F700791912 /* Grocery List */ = {
 			isa = PBXGroup;
 			children = (
+				15D40D481AE07C99005AA474 /* GroceryParser.swift */,
 				CDD53FE91A85769000791912 /* GroceryTableViewController.swift */,
 				CDD53FE21A85525800791912 /* Grocery.swift */,
 				155953C31ACB9A4A005777A4 /* GroceryList.swift */,
@@ -265,12 +266,13 @@
 			files = (
 				CDD53FC11A84384200791912 /* SharpShopper.xcdatamodeld in Sources */,
 				CDD53FE61A8553FC00791912 /* GroceryTableViewCell.swift in Sources */,
+				15D40D4B1AE07F2A005AA474 /* SupermarketAPI.swift in Sources */,
 				155953C41ACB9A4A005777A4 /* GroceryList.swift in Sources */,
 				15D40D451ADF30ED005AA474 /* GroceryListUpdateDelegate.swift in Sources */,
 				15E8C5BD1AD60E0600AF91EF /* SuggestedTableViewController.swift in Sources */,
 				CDD53FBE1A84384200791912 /* AppDelegate.swift in Sources */,
+				15D40D491AE07C99005AA474 /* GroceryParser.swift in Sources */,
 				CDD53FE31A85525800791912 /* Grocery.swift in Sources */,
-				155953C11AC1B8A0005777A4 /* SupermarketAPI.m in Sources */,
 				CDD53FEB1A85769000791912 /* GroceryTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

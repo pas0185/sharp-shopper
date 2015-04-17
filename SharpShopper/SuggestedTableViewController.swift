@@ -15,6 +15,11 @@ class SuggestedTableViewController: UITableViewController { // GroceryListUpdate
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.registerNib(UINib(nibName: "GroceryTableViewCell", bundle: nil), forCellReuseIdentifier: "GroceryCell")
+
+        self.tableView.estimatedRowHeight = 70;
+        self.tableView.rowHeight = UITableViewAutomaticDimension;
+        
         self.fetchNetworkGroceries()
         
         // Uncomment the following line to preserve selection between presentations
@@ -31,15 +36,25 @@ class SuggestedTableViewController: UITableViewController { // GroceryListUpdate
 
     func fetchNetworkGroceries() {
 
+        var apiClient = SupermarketAPI()
+        var groceries = apiClient.searchByProductName("apple")
+        
+        println("fetched \(groceries.count) groceries")
+        
+        self.suggestedGroceries = groceries as AnyObject as! [Grocery]
+        println("converted \(self.suggestedGroceries.count) groceries")
+        self.tableView.reloadData()
+        
 //        var xmlObj = XMLParser()
 //        var feeder = xmlObj.xmlParse()
 //        
 //        println(feeder)
+
 //        var data = SupermarketAPI.getGroceryData("apple")
 //        var url = SupermarketAPI.getGroceryURL("apple")
 //        var fgList = GroceryList(url: url)
 //        println("Fetched data: \(data)")
-        
+//        
 //        var fetchedGroceryList = GroceryList(XMLData: data)
         
     }
@@ -57,18 +72,14 @@ class SuggestedTableViewController: UITableViewController { // GroceryListUpdate
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
+        let cell = tableView.dequeueReusableCellWithIdentifier("GroceryCell") as? GroceryTableViewCell
         
-        let identifier = "suggestedGroceryTableCell"
-        var cell: GroceryTableViewCell! = tableView.dequeueReusableCellWithIdentifier(identifier) as? GroceryTableViewCell
-        if cell == nil {
-            tableView.registerNib(UINib(nibName: "GroceryTableViewCell", bundle: nil), forCellReuseIdentifier: identifier)
-            cell = tableView.dequeueReusableCellWithIdentifier(identifier) as? GroceryTableViewCell
-        }
-        
-        cell.assignGrocery(self.suggestedGroceries[indexPath.row])
+        var grocery = self.suggestedGroceries[indexPath.row]
+        cell?.assignGrocery(grocery)
         
 //        cell.delegate = self
-        return cell
+        return cell!
 
     }
 
