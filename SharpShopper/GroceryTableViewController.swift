@@ -57,17 +57,9 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
 
     }
     
-    func groceryListDataDidChange() {
-        self.tableView.reloadData()
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func testGetGroceryData() {
-        
     }
 
     // MARK: - TableView Methods
@@ -104,7 +96,7 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
             cell?.assignGrocery(grocery)
         }
         
-//        cell.delegate = self
+        cell?.delegate = self
         return cell!
     }
     
@@ -141,6 +133,17 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
             
         }    
     }
+    
+    // MARK: - GroceryListUpdateDelegate Methods
+    
+    func didChooseGrocery(grocery: Grocery) {
+        grocery.purchased = !grocery.purchased
+        self.tableView.reloadData()
+    }
+    
+    func groceryListDataDidChange() {
+        self.tableView.reloadData()
+    }
 
     /*
     // Override to support rearranging the table view.
@@ -155,15 +158,5 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
         // Return NO if you do not want the item to be re-orderable.
         return true
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
     
 }

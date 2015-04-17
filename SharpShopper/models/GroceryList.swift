@@ -42,6 +42,8 @@ class GroceryList: NSObject, NSXMLParserDelegate {
     func fetchGroceriesFromCoreData() {
         let fetchRequest = NSFetchRequest(entityName: "Grocery")
         
+        fetchRequest.predicate = NSPredicate(format: "isOnGroceryList = true")
+        
         // Fetch all groceries from Core Data
         if let fetchResults = managedObjectContext!.executeFetchRequest(fetchRequest, error: nil) as? [Grocery] {
             items = fetchResults
@@ -52,7 +54,7 @@ class GroceryList: NSObject, NSXMLParserDelegate {
     func addGrocery(grocery: Grocery) {
         // Add new grocery to list
 
-        grocery.delegate = self.delegate
+        grocery.isOnGroceryList = true
         
         // Append this grocery to this GroceryList
         self.items.append(grocery)

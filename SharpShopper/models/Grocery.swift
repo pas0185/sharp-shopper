@@ -18,7 +18,9 @@ class Grocery: NSManagedObject {
     @NSManaged var itemCategory: String
     @NSManaged var itemImageURL: String
     
+    
     /* User status fields */
+    @NSManaged var isOnGroceryList: Bool
     @NSManaged var purchased: Bool
     // TODO: make this a computed property
     // when modified, notify the delegate

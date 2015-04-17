@@ -16,24 +16,6 @@ class GroceryTableViewCell: UITableViewCell {
     @IBOutlet weak var buyButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var gImageView: UIImageView!
-
-    init(grocery: Grocery) {
-        super.init(style: UITableViewCellStyle.Default, reuseIdentifier: "")
-        self.myGrocery = grocery
-    }
-
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code\
-    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -60,7 +42,6 @@ class GroceryTableViewCell: UITableViewCell {
                 })
                 
                 task.resume()
-                
             }
         }
     }
@@ -77,10 +58,10 @@ class GroceryTableViewCell: UITableViewCell {
     
     @IBAction func buyButtonPressed(sender: UIButton) {
         
-        sender.selected = !sender.selected
-        self.myGrocery.purchased = sender.selected
+//        sender.selected = !sender.selected
+//        self.myGrocery.purchased = sender.selected
+
+        self.delegate?.didChooseGrocery(self.myGrocery)
         
-        self.delegate?.groceryListDataDidChange()
-    
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SuggestedTableViewController: UITableViewController { // GroceryListUpdateDelegate { // For updating purchased status, move to 'My List'
+class SuggestedTableViewController: UITableViewController, GroceryListUpdateDelegate {
 
     var suggestedGroceries: [Grocery] = []
     
@@ -45,18 +45,6 @@ class SuggestedTableViewController: UITableViewController { // GroceryListUpdate
         println("converted \(self.suggestedGroceries.count) groceries")
         self.tableView.reloadData()
         
-//        var xmlObj = XMLParser()
-//        var feeder = xmlObj.xmlParse()
-//        
-//        println(feeder)
-
-//        var data = SupermarketAPI.getGroceryData("apple")
-//        var url = SupermarketAPI.getGroceryURL("apple")
-//        var fgList = GroceryList(url: url)
-//        println("Fetched data: \(data)")
-//        
-//        var fetchedGroceryList = GroceryList(XMLData: data)
-        
     }
     
     // MARK: - Table view data source
@@ -78,54 +66,18 @@ class SuggestedTableViewController: UITableViewController { // GroceryListUpdate
         var grocery = self.suggestedGroceries[indexPath.row]
         cell?.assignGrocery(grocery)
         
-//        cell.delegate = self
+        cell?.delegate = self
+        
         return cell!
-
     }
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    // MARK: - GroceryListUpdateDelegate Methods
+    
+    func didChooseGrocery(grocery: Grocery) {
+        
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func groceryListDataDidChange() {
+        self.tableView.reloadData()
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
