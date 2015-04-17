@@ -43,21 +43,25 @@ class GroceryTableViewCell: UITableViewCell {
             
             self.gImageView.image = nil
             if let imageURL = NSURL(string: grocery.itemImageURL) {
-                println("Found image URL on Grocery object")
                 
-                // TODO: Dispatch to another thread here
-                if let imageData = NSData(contentsOfURL: imageURL) {
-                    println("image URL has data")
-
-                    if let image = UIImage(data: imageData) {
-                        println("UIImage successfully built from data")
-                        
-                        // TODO: Dispatch back to main thread
-                            self.gImageView.image = image
+                let session = NSURLSession.sharedSession()
+                let task = session.dataTaskWithURL(imageURL, completionHandler: {data, response, error -> Void in
+                    
+                    if error != nil {
+                        println(error.localizedDescription)
                     }
-                }
+                    
+                    if let image = UIImage(data: data) {
+                    
+                        dispatch_async(dispatch_get_main_queue(), {
+                            self.gImageView.image = image
+                        })
+                    }
+                })
+                
+                task.resume()
+                
             }
-            
         }
     }
 

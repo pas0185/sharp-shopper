@@ -47,8 +47,6 @@ class Grocery: NSManagedObject {
     
     class func stripped(string: String) -> String {
         var newString = string.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet())
-        
-        println("Old string = \(string)\nNew string = \(newString)\n\n")
         return newString
     }
 }
