@@ -29,8 +29,10 @@ class WalmartAPI: NSObject {
         }
     }
     
-    func searchByProductName(name: String) {    //-> [Grocery] {
+    func searchByProductName(name: String) {
 
+        self.groceries = [Grocery]()
+        
         let url: NSURL = NSURL(string: "\(API_URL)/search?apiKey=\(APIKey)&query=\(name)")!
         
         let session = NSURLSession.sharedSession()
@@ -46,16 +48,27 @@ class WalmartAPI: NSObject {
             }
             
             let json = JSON(jsonResult)
-            let count: Int? = json["items"].array?.count
-            println("found \(count!) items")
             
-            
-            
+            let list: Array<JSON> = json["items"].arrayValue
+            for dict in list {
+                
+                let itemID = dict["itemId"].stringValue
+                let name = dict["name"].stringValue
+                let msrp = dict["msrp"].stringValue
+                let salePrice = dict["salePrice"].doubleValue
+                let description = dict["shortDescription"].stringValue
+                let image = dict["thumbnailImage"].stringValue
+                let category = dict["categoryPath"].stringValue
+                
+                var grocery = Grocery.createInManagedObjectContext(self.managedObjectContext!, itemID: itemID, itemName: name, itemDescription: description, itemCategory: category, itemImageURL: image, purchased: false, price: salePrice)
+
+                println("\n*********************")
+                println(grocery)
+                self.groceries?.append(grocery)
+            }
         })
         
         task.resume()
-        
-        // return groceries
     }
 
 

@@ -36,14 +36,18 @@ class SuggestedTableViewController: UITableViewController, GroceryListUpdateDele
 
     func fetchNetworkGroceries() {
 
-        var apiClient = SupermarketAPI()
-        var groceries = apiClient.searchByProductName("apple")
+        var client = WalmartAPI()
+        client.searchByProductName("crackers")
         
-        println("fetched \(groceries.count) groceries")
         
-        self.suggestedGroceries = groceries as AnyObject as! [Grocery]
-        println("converted \(self.suggestedGroceries.count) groceries")
-        self.tableView.reloadData()
+//        var apiClient = SupermarketAPI()
+//        var groceries = apiClient.searchByProductName("apple")
+//        
+//        println("fetched \(groceries.count) groceries")
+//        
+//        self.suggestedGroceries = groceries as AnyObject as! [Grocery]
+//        println("converted \(self.suggestedGroceries.count) groceries")
+//        self.tableView.reloadData()
         
     }
     
