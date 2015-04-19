@@ -10,7 +10,7 @@ import Foundation
 
 class SupermarketAPI: NSObject, NSXMLParserDelegate {
     
-    let SUPERMARKET_API_URL = "http://www.SupermarketAPI.com/api.asmx"
+    let API_URL = "http://www.SupermarketAPI.com/api.asmx"
 
     var groceries: [Grocery]?
     
@@ -33,14 +33,13 @@ class SupermarketAPI: NSObject, NSXMLParserDelegate {
             var dict = NSDictionary(contentsOfFile: file)
             
             var key = dict?.objectForKey("SUPERMARKET_API_KEY") as! String
-            println("API key = \(key)")
             return key
         }
     }
     
     func searchByProductName(name: String) -> [Grocery] {
         
-        let url = NSURL(string: "\(SUPERMARKET_API_URL)/SearchByProductName?APIKEY=\(APIKey)&ItemName=\(name)")
+        let url = NSURL(string: "\(API_URL)/SearchByProductName?APIKEY=\(APIKey)&ItemName=\(name)")
         return self.parseToGroceryArrayFromURL(url!)
     }
 
