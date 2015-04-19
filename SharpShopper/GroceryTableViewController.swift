@@ -155,14 +155,15 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
     
     func didAddToList(grocery: Grocery) {
         
+        self.groceryList.addGrocery(grocery)
     }
     
     func didPurchase(grocery: Grocery) {
-        
+        //FIXME unimplemented didPurchase function
     }
     
     func didUnPurchase(grocery: Grocery) {
-        
+        //FIXME unimplemented didUnPurchase function
     }
     
     

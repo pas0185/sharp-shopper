@@ -10,6 +10,13 @@ import Foundation
 
 protocol GroceryListUpdateDelegate {
     
+    // TODO
+    func didAddToList(grocery: Grocery)
+    func didPurchase(grocery: Grocery)
+    func didUnPurchase(grocery: Grocery)
+    
+    
+    
     func groceryListDataDidChange()
     
     func didChooseGrocery(grocery: Grocery)

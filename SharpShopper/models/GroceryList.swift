@@ -77,4 +77,12 @@ class GroceryList: NSObject, NSXMLParserDelegate {
         // Tell delegate that data has changed
         self.delegate?.groceryListDataDidChange()
     }
+    
+    func didUpdateGrocery(grocery: Grocery, property: String, newValue: String) {
+        
+        var request = NSFetchRequest(entityName: "Grocery")
+
+        
+        
+    }
 }
