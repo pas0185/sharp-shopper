@@ -11,6 +11,10 @@ import CoreData
 
 class GroceryTableViewController: UITableViewController, GroceryListUpdateDelegate {
     
+    let UN_PURCHASED_SECTION = 0
+    let YES_PURCHASED_SECTION = 1
+    let SUGGESTED_SECTION = 2
+    
     var groceryList = GroceryList()
     
     override func viewDidLoad() {
@@ -66,16 +70,16 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
-        return 2
+        return 3
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
         
-        if section == 0 {
+        if section == UN_PURCHASED_SECTION {
             return self.groceryList.unpurchasedGroceries.count
         }
-        else if section == 1 {
+        else if section == YES_PURCHASED_SECTION {
             return self.groceryList.purchasedGroceries.count
         }
         
@@ -86,12 +90,12 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
 
         let cell = tableView.dequeueReusableCellWithIdentifier("GroceryCell") as? GroceryTableViewCell
         
-        if indexPath.section == 0 {
+        if indexPath.section == UN_PURCHASED_SECTION {
             var grocery = self.groceryList.unpurchasedGroceries[indexPath.row]
             cell?.assignGrocery(grocery)
         }
             
-        else if indexPath.section == 1 {
+        else if indexPath.section == YES_PURCHASED_SECTION {
             var grocery = self.groceryList.purchasedGroceries[indexPath.row]
             cell?.assignGrocery(grocery)
         }
@@ -100,23 +104,36 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
         return cell!
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if indexPath.section == UN_PURCHASED_SECTION {
+            var grocery = self.groceryList.unpurchasedGroceries[indexPath.row]
+        }
+            
+        else if indexPath.section == YES_PURCHASED_SECTION {
+            var grocery = self.groceryList.purchasedGroceries[indexPath.row]
+        }
+        
+    }
+    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return true because we will allow users to add and delete groceries
         return true
     }
 
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the grocery from the list
             
-            if indexPath.section == 0 {
+            if indexPath.section == UN_PURCHASED_SECTION {
                 let grocery = self.groceryList.unpurchasedGroceries[indexPath.row]
                 self.groceryList.deleteGrocery(grocery)
                 
             }
                 
-            else if indexPath.section == 1 {
+            else if indexPath.section == YES_PURCHASED_SECTION {
                 let grocery = self.groceryList.purchasedGroceries[indexPath.row]
                 self.groceryList.deleteGrocery(grocery)
             }
@@ -126,7 +143,7 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
         else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
             
-            var newGrocery = Grocery()
+//            var newGrocery = Grocery()
 //            groceryList.append(newGrocery)
             
             tableView.reloadData()
@@ -136,7 +153,21 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
     
     // MARK: - GroceryListUpdateDelegate Methods
     
+    func didAddToList(grocery: Grocery) {
+        
+    }
+    
+    func didPurchase(grocery: Grocery) {
+        
+    }
+    
+    func didUnPurchase(grocery: Grocery) {
+        
+    }
+    
+    
     func didChooseGrocery(grocery: Grocery) {
+        
         grocery.purchased = !grocery.purchased
         self.tableView.reloadData()
     }
