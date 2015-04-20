@@ -1,5 +1,5 @@
 //
-//  SuggestedTableViewController.swift
+//  SuggestionsTableViewController.swift
 //  SharpShopper
 //
 //  Created by Patrick Sheehan on 4/8/15.
@@ -8,22 +8,28 @@
 
 import UIKit
 
-class SuggestedTableViewController: UITableViewController, ClientAPIDelegate {
+class SuggestionsTableViewController: UITableViewController, ClientAPIDelegate {
 
     var suggestedGroceries: [Grocery] = []
-    var searchTerm: String?
     
-    let walmartClient = WalmartAPI()
+    var suggestionTerm: String?
+    
+    var walmartClient: WalmartAPI?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        println("SuggestionsTableViewController viewDidLoad")
+        self.walmartClient = WalmartAPI(delegate: self)
+        
         self.tableView.registerNib(UINib(nibName: "GroceryTableViewCell", bundle: nil), forCellReuseIdentifier: "GroceryCell")
 
         self.tableView.estimatedRowHeight = 70;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         
-        self.fetchNetworkGroceries()
+        
+        self.performSearchForTerm(suggestionTerm)
+//        self.fetchNetworkGroceries()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,15 +37,17 @@ class SuggestedTableViewController: UITableViewController, ClientAPIDelegate {
         // Dispose of any resources that can be recreated.
     }
     
-    func fetchNetworkGroceries() {
-        
-        if let term = searchTerm {
-            walmartClient.delegate = self
-            walmartClient.searchByProductName(term)
+    func performSearchForTerm(term: String?) {
+    
+        if term != nil && self.walmartClient != nil {
+            println("SuggestionsViewController performing search for term")
+            walmartClient!.searchByProductName(term!)
         }
+        
     }
     
-    //MARK: - SSAPIDelegate Methods
+
+    //MARK: - ClientAPIDelegate Methods
 
     func foundNetworkGroceries(groceryListData data: NSData) {
      
@@ -71,9 +79,13 @@ class SuggestedTableViewController: UITableViewController, ClientAPIDelegate {
         var grocery = self.suggestedGroceries[indexPath.row]
         cell?.assignGrocery(grocery)
         
-        cell?.delegate = self
+//        cell?.delegate = self
         
         return cell!
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
     }
 
     // MARK: - GroceryListUpdateDelegate Methods

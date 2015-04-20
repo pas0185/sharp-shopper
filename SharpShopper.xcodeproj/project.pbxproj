@@ -15,7 +15,7 @@
 		15D40D451ADF30ED005AA474 /* GroceryListUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D40D441ADF30ED005AA474 /* GroceryListUpdateDelegate.swift */; };
 		15D40D4B1AE07F2A005AA474 /* SupermarketAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D40D4A1AE07F2A005AA474 /* SupermarketAPI.swift */; };
 		15D40D4D1AE31FA9005AA474 /* WalmartAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D40D4C1AE31FA9005AA474 /* WalmartAPI.swift */; };
-		15E8C5BD1AD60E0600AF91EF /* SuggestedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E8C5BC1AD60E0600AF91EF /* SuggestedTableViewController.swift */; };
+		15E8C5BD1AD60E0600AF91EF /* SuggestionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E8C5BC1AD60E0600AF91EF /* SuggestionsTableViewController.swift */; };
 		CDD53FBE1A84384200791912 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FBD1A84384200791912 /* AppDelegate.swift */; };
 		CDD53FC11A84384200791912 /* SharpShopper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FBF1A84384200791912 /* SharpShopper.xcdatamodeld */; };
 		CDD53FCA1A84384200791912 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDD53FC91A84384200791912 /* Images.xcassets */; };
@@ -48,7 +48,7 @@
 		15D40D441ADF30ED005AA474 /* GroceryListUpdateDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListUpdateDelegate.swift; sourceTree = "<group>"; };
 		15D40D4A1AE07F2A005AA474 /* SupermarketAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupermarketAPI.swift; sourceTree = "<group>"; };
 		15D40D4C1AE31FA9005AA474 /* WalmartAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalmartAPI.swift; sourceTree = "<group>"; };
-		15E8C5BC1AD60E0600AF91EF /* SuggestedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestedTableViewController.swift; sourceTree = "<group>"; };
+		15E8C5BC1AD60E0600AF91EF /* SuggestionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionsTableViewController.swift; sourceTree = "<group>"; };
 		CDD53FB81A84384200791912 /* SharpShopper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharpShopper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD53FBC1A84384200791912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDD53FBD1A84384200791912 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -176,8 +176,8 @@
 		CDD53FE81A8575F700791912 /* Table Views */ = {
 			isa = PBXGroup;
 			children = (
-				15E8C5BC1AD60E0600AF91EF /* SuggestedTableViewController.swift */,
 				CDD53FE91A85769000791912 /* GroceryTableViewController.swift */,
+				15E8C5BC1AD60E0600AF91EF /* SuggestionsTableViewController.swift */,
 				CDD53FE41A8553FC00791912 /* GroceryTableViewCell.swift */,
 				CDD53FE51A8553FC00791912 /* GroceryTableViewCell.xib */,
 			);
@@ -293,7 +293,7 @@
 				155C68511AE4372C00132EC5 /* SwiftyJSON.swift in Sources */,
 				155953C41ACB9A4A005777A4 /* GroceryList.swift in Sources */,
 				15D40D451ADF30ED005AA474 /* GroceryListUpdateDelegate.swift in Sources */,
-				15E8C5BD1AD60E0600AF91EF /* SuggestedTableViewController.swift in Sources */,
+				15E8C5BD1AD60E0600AF91EF /* SuggestionsTableViewController.swift in Sources */,
 				15D40D4D1AE31FA9005AA474 /* WalmartAPI.swift in Sources */,
 				CDD53FBE1A84384200791912 /* AppDelegate.swift in Sources */,
 				CDD53FE31A85525800791912 /* Grocery.swift in Sources */,

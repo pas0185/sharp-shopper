@@ -17,6 +17,8 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
     
     var groceryList = GroceryList()
     
+    lazy var suggestionsViewController = SuggestionsTableViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -116,9 +118,14 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
             grocery = self.groceryList.purchasedGroceries[indexPath.row]
         }
         
-        if let gSelection = grocery {
-            var suggestedGroceries = SuggestedTableViewController()
+        if let term = grocery?.itemName {
+            println("Selected grocery with search term = \(term)")
             
+            // Assign search term for the suggestions vew
+            self.suggestionsViewController.suggestionTerm = term
+            
+            // Present the suggestions
+            self.navigationController?.pushViewController(self.suggestionsViewController, animated: true)
         }
     }
     

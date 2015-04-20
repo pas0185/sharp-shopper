@@ -59,15 +59,15 @@ class GroceryList: NSObject, NSXMLParserDelegate {
         let list: Array<JSON> = json["items"].arrayValue
         for dict in list {
             
-            let itemID = dict["itemId"].stringValue
-            let name = dict["name"].stringValue
-            let msrp = dict["msrp"].stringValue
-            let salePrice = dict["salePrice"].doubleValue
-            let description = dict["shortDescription"].stringValue
-            let image = dict["thumbnailImage"].stringValue
-            let category = dict["categoryPath"].stringValue
+            let itemID: String? = dict["itemId"].stringValue
+            let name: String? = dict["name"].stringValue
+            let msrp: Double? = dict["msrp"].doubleValue
+            let salePrice: Double? = dict["salePrice"].doubleValue
+            let description: String? = dict["shortDescription"].stringValue
+            let image: String? = dict["thumbnailImage"].stringValue
+            let category: String? = dict["categoryPath"].stringValue
             
-            var grocery = Grocery.createInManagedObjectContext(nil, itemID: itemID, itemName: name, itemDescription: description, itemCategory: category, itemImageURL: image, purchased: false, price: salePrice)
+            var grocery = Grocery.createInManagedObjectContext(self.managedObjectContext, itemID: itemID, itemName: name, itemDescription: description, itemCategory: category, itemImageURL: image, purchased: false, price: salePrice)
             
             self.items.append(grocery)
         }
