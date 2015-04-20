@@ -8,15 +8,25 @@
 
 import Foundation
 
+protocol SSAPIDelegate {
+    
+    func foundNetworkGroceries(groceryListData data: NSData)
+}
+
 class WalmartAPI: NSObject {
     
     let API_URL = "http://api.walmartlabs.com/v1"
     
-    var groceries: [Grocery]?
+    var groceries = [Grocery]()
+    var delegate: SSAPIDelegate?
     
+    // Maybe shouldn't have this here
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     
+
     private var APIKey: String {
+        
+        // Get the API key from Keys.Plist
         get {
             
             var bundle = NSBundle.mainBundle()
@@ -30,8 +40,6 @@ class WalmartAPI: NSObject {
     }
     
     func searchByProductName(name: String) {
-
-        self.groceries = [Grocery]()
         
         let url: NSURL = NSURL(string: "\(API_URL)/search?apiKey=\(APIKey)&query=\(name)")!
         
@@ -41,31 +49,7 @@ class WalmartAPI: NSObject {
                 println(error.localizedDescription)
             }
             
-            var err: NSError?
-            var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers, error: &err) as! NSDictionary
-            if err != nil {
-                println("JSON Error \(err!.localizedDescription)")
-            }
-            
-            let json = JSON(jsonResult)
-            
-            let list: Array<JSON> = json["items"].arrayValue
-            for dict in list {
-                
-                let itemID = dict["itemId"].stringValue
-                let name = dict["name"].stringValue
-                let msrp = dict["msrp"].stringValue
-                let salePrice = dict["salePrice"].doubleValue
-                let description = dict["shortDescription"].stringValue
-                let image = dict["thumbnailImage"].stringValue
-                let category = dict["categoryPath"].stringValue
-                
-                var grocery = Grocery.createInManagedObjectContext(self.managedObjectContext!, itemID: itemID, itemName: name, itemDescription: description, itemCategory: category, itemImageURL: image, purchased: false, price: salePrice)
-
-                println("\n*********************")
-                println(grocery)
-                self.groceries?.append(grocery)
-            }
+            self.delegate?.foundNetworkGroceries(groceryListData: data)
         })
         
         task.resume()

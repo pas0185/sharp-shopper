@@ -39,6 +39,40 @@ class GroceryList: NSObject, NSXMLParserDelegate {
         super.init()
     }
     
+    init(data: NSData) {
+        super.init()
+        
+        // Parse Data
+        self.parseJSON(data)
+    }
+    
+    func parseJSON(data: NSData) {
+        
+        var err: NSError?
+        var jsonResult = NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers, error: &err) as! NSDictionary
+        if err != nil {
+            println("JSON Error \(err!.localizedDescription)")
+        }
+        
+        let json = JSON(jsonResult)
+        
+        let list: Array<JSON> = json["items"].arrayValue
+        for dict in list {
+            
+            let itemID = dict["itemId"].stringValue
+            let name = dict["name"].stringValue
+            let msrp = dict["msrp"].stringValue
+            let salePrice = dict["salePrice"].doubleValue
+            let description = dict["shortDescription"].stringValue
+            let image = dict["thumbnailImage"].stringValue
+            let category = dict["categoryPath"].stringValue
+            
+            var grocery = Grocery.createInManagedObjectContext(nil, itemID: itemID, itemName: name, itemDescription: description, itemCategory: category, itemImageURL: image, purchased: false, price: salePrice)
+            
+            self.items.append(grocery)
+        }
+        
+    }
     func fetchGroceriesFromCoreData() {
         let fetchRequest = NSFetchRequest(entityName: "Grocery")
         
@@ -83,6 +117,6 @@ class GroceryList: NSObject, NSXMLParserDelegate {
         var request = NSFetchRequest(entityName: "Grocery")
 
         
-        
+        //FIXME didUpdateGrocery
     }
 }

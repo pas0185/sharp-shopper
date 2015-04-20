@@ -8,9 +8,12 @@
 
 import UIKit
 
-class SuggestedTableViewController: UITableViewController, GroceryListUpdateDelegate {
+class SuggestedTableViewController: UITableViewController, SSAPIDelegate {
 
     var suggestedGroceries: [Grocery] = []
+    var searchTerm: String?
+    
+    let walmartClient = WalmartAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,33 +24,31 @@ class SuggestedTableViewController: UITableViewController, GroceryListUpdateDele
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         
         self.fetchNetworkGroceries()
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func fetchNetworkGroceries() {
+        
+        if let term = searchTerm {
+            walmartClient.delegate = self
+            walmartClient.searchByProductName(term)
+        }
+    }
+    
+    //MARK: - SSAPIDelegate Methods
 
-        var client = WalmartAPI()
-        client.searchByProductName("crackers")
+    func foundNetworkGroceries(groceryListData data: NSData) {
+     
+        // Initialize a GroceryList with the data
+        var groceryList = GroceryList(data: data)
         
-        
-//        var apiClient = SupermarketAPI()
-//        var groceries = apiClient.searchByProductName("apple")
-//        
-//        println("fetched \(groceries.count) groceries")
-//        
-//        self.suggestedGroceries = groceries as AnyObject as! [Grocery]
-//        println("converted \(self.suggestedGroceries.count) groceries")
-//        self.tableView.reloadData()
+        // Use the groceries for this TableView
+        self.suggestedGroceries = groceryList.items
+        self.tableView.reloadData()
         
     }
     

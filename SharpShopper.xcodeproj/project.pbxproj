@@ -83,7 +83,6 @@
 		155953C21ACB8F94005777A4 /* Suggested Groceries */ = {
 			isa = PBXGroup;
 			children = (
-				155C68501AE4372C00132EC5 /* SwiftyJSON.swift */,
 				15D40D4A1AE07F2A005AA474 /* SupermarketAPI.swift */,
 				15D40D4C1AE31FA9005AA474 /* WalmartAPI.swift */,
 				15E8C5BC1AD60E0600AF91EF /* SuggestedTableViewController.swift */,
@@ -129,6 +128,7 @@
 		CDD53FBB1A84384200791912 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				155C68501AE4372C00132EC5 /* SwiftyJSON.swift */,
 				155953BC1AC1B7D3005777A4 /* Keys.plist */,
 				CDD53FBC1A84384200791912 /* Info.plist */,
 			);

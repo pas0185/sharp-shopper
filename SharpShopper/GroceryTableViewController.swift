@@ -106,14 +106,20 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        var grocery: Grocery?
+        
         if indexPath.section == UN_PURCHASED_SECTION {
-            var grocery = self.groceryList.unpurchasedGroceries[indexPath.row]
+            grocery = self.groceryList.unpurchasedGroceries[indexPath.row]
         }
             
         else if indexPath.section == YES_PURCHASED_SECTION {
-            var grocery = self.groceryList.purchasedGroceries[indexPath.row]
+            grocery = self.groceryList.purchasedGroceries[indexPath.row]
         }
         
+        if let gSelection = grocery {
+            var suggestedGroceries = SuggestedTableViewController()
+            
+        }
     }
     
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {

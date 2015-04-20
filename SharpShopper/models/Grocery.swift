@@ -32,8 +32,8 @@ class Grocery: NSManagedObject {
 
     var delegate: GroceryListUpdateDelegate?
     
-    class func createInManagedObjectContext(moc: NSManagedObjectContext, itemID: String, itemName: String, itemDescription: String, itemCategory: String, itemImageURL: String, purchased: Bool, price: Double) -> Grocery {
-        let newGrocery = NSEntityDescription.insertNewObjectForEntityForName("Grocery", inManagedObjectContext: moc) as! Grocery
+    class func createInManagedObjectContext(moc: NSManagedObjectContext?, itemID: String, itemName: String, itemDescription: String, itemCategory: String, itemImageURL: String, purchased: Bool, price: Double) -> Grocery {
+        let newGrocery = NSEntityDescription.insertNewObjectForEntityForName("Grocery", inManagedObjectContext: moc!) as! Grocery
         
         newGrocery.itemID = stripped(itemID)
         newGrocery.itemName = stripped(itemName)
