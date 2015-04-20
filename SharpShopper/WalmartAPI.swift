@@ -8,17 +8,12 @@
 
 import Foundation
 
-protocol SSAPIDelegate {
-    
-    func foundNetworkGroceries(groceryListData data: NSData)
-}
-
 class WalmartAPI: NSObject {
     
     let API_URL = "http://api.walmartlabs.com/v1"
     
     var groceries = [Grocery]()
-    var delegate: SSAPIDelegate?
+    var delegate: ClientAPIDelegate?
     
     // Maybe shouldn't have this here
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SuggestedTableViewController: UITableViewController, SSAPIDelegate {
+class SuggestedTableViewController: UITableViewController, ClientAPIDelegate {
 
     var suggestedGroceries: [Grocery] = []
     var searchTerm: String?
