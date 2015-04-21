@@ -10,21 +10,25 @@ import UIKit
 
 class SuggestionsTableViewController: UITableViewController {
 
-    var suggestedGroceries: [Grocery] = []
-    
+    var suggestedGroceries = [Grocery]()
     var suggestionTerm: String?
-    
     let walmartClient = WalmartAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "SharpShopper"
-        
+        // Configure Table View
         self.tableView.registerNib(UINib(nibName: "GroceryTableViewCell", bundle: nil), forCellReuseIdentifier: "GroceryCell")
-
         self.tableView.estimatedRowHeight = 70;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
+        
+        // Remove all old groceries
+        self.suggestedGroceries.removeAll(keepCapacity: true)
+        
+        // Go fetch suggestions for the term
+        if let term = suggestionTerm {
+            self.performSearchForTerm(term)
+        }
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -40,12 +44,13 @@ class SuggestionsTableViewController: UITableViewController {
             walmartClient.searchByProductName(searchTerm) {
                 (groceryData: NSData) in
                 
-                // Initialize a GroceryList with the data
-                var groceryList = GroceryList(data: groceryData)
+                // Parse the grocery data
+                var groceries = Grocery.arrayFromJSON(groceryData)
                 
-                // Use the groceries for this TableView
-                self.suggestedGroceries = groceryList.items
+                // Assign these groceries for the TableView
+                self.suggestedGroceries = groceries
                 
+                // Reload TableView
                 dispatch_async(dispatch_get_main_queue()) {
                     self.tableView.reloadData()
                 }

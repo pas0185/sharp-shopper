@@ -96,9 +96,11 @@ class SupermarketAPI: NSObject, NSXMLParserDelegate {
     func parser(parser: NSXMLParser, didEndElement elementName: String, namespaceURI: String?, qualifiedName qName: String?) {
 
         if elementName == "Product" {
-            var grocery = Grocery.createInManagedObjectContext(self.managedObjectContext!, itemID: self.itemID!, itemName: self.itemName!, itemDescription: self.itemDescription!, itemCategory: self.itemCategory!, itemImageURL: self.itemImage!, purchased: false, price: 0.0)
             
-            self.groceries?.append(grocery)
+           // #warning need to come fix this grocery initialization
+//            var grocery = Grocery.createInManagedObjectContext(self.managedObjectContext!, itemID: self.itemID!, itemName: self.itemName!, itemDescription: self.itemDescription!, itemCategory: self.itemCategory!, itemImageURL: self.itemImage!, purchased: false, price: 0.0)
+//            
+//            self.groceries?.append(grocery)
         }
     }
 }

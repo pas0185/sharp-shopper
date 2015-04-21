@@ -19,8 +19,7 @@ class CoreDataManager: NSObject {
         return _CoreDataManagerInstance
     }
     
-    
-    func fetchGroceryList(block: (list: GroceryList) -> Void) {
+    func fetchGroceryList(block: (groceries: [Grocery]) -> Void) {
         
         var groceries = [Grocery]()
         
@@ -35,19 +34,31 @@ class CoreDataManager: NSObject {
             println(error!.localizedDescription)
         }
         
-        var gList = GroceryList(groceries: groceries)
-        
         // Notify the fetch is finished to the completion block
-        block(list: gList)
+        block(groceries: groceries)
     }
     
     func saveNewGrocery(groceryName: String, completionHandler: (grocery: Grocery) -> Void) {
 
-        var grocery = Grocery.createInManagedObjectContext(managedObjectContext!, itemID: "", itemName: groceryName, itemDescription: "", itemCategory: "", itemImageURL: "", purchased: false, price: 0)
-        
+        let entity = NSEntityDescription.entityForName("Grocery", inManagedObjectContext: self.managedObjectContext!)
+        var grocery = Grocery(entity: entity!, insertIntoManagedObjectContext: self.managedObjectContext!)
+        grocery.draftName = groceryName
+        grocery.itemName = ""
+        grocery.itemCategory = ""
+        grocery.itemDescription = ""
+        grocery.itemID = ""
+        grocery.itemImageURL = ""
+
         self.saveContext()
         
         completionHandler(grocery: grocery)
+    }
+    
+    func deleteGrocery(grocery: Grocery, completionHandler: (error: NSError?) -> Void) {
+        
+        managedObjectContext!.deleteObject(grocery)
+        
+        completionHandler(error: nil)
     }
     
     // MARK: - Core Data Saving support

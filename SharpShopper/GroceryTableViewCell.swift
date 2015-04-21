@@ -20,7 +20,7 @@ class GroceryTableViewCell: UITableViewCell {
         super.layoutSubviews()
         if let grocery = self.myGrocery {
             self.buyButton.selected = grocery.purchased
-            self.nameLabel.text = grocery.itemName
+            self.nameLabel.text = grocery.draftName
             
             self.gImageView.image = nil
             if let imageURL = NSURL(string: grocery.itemImageURL) {

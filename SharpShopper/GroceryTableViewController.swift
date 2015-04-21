@@ -11,11 +11,18 @@ import CoreData
 
 class GroceryTableViewController: UITableViewController {
     
+    var groceries = [Grocery]()
+    
+    var unpurchasedGroceries: [Grocery] {
+        return (self.groceries.filter() { $0.purchased == false })
+    }
+    var purchasedGroceries: [Grocery] {
+        return (self.groceries.filter() { $0.purchased == true })
+    }
+    
     let UN_PURCHASED_SECTION = 0
     let YES_PURCHASED_SECTION = 1
     let SUGGESTED_SECTION = 2
-    
-    var groceryList = GroceryList()
     
     lazy var suggestionsViewController = SuggestionsTableViewController()
     
@@ -28,16 +35,13 @@ class GroceryTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         
         CoreDataManager.sharedInstance.fetchGroceryList() {
-            (list: GroceryList) in
+            (groceries: [Grocery]) in
             
-            println("Fetched My Grocery List from Core Data: \(list.items.count) items")
+            println("Fetched My Grocery List from Core Data: \(groceries.count) items")
             
-            self.groceryList = list
-            
+            self.groceries = groceries
             self.tableView.reloadData()
         }
-        
-        self.groceryList.fetchGroceriesFromCoreData()
 
         // 'Edit' and 'Add' buttons
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
@@ -70,7 +74,7 @@ class GroceryTableViewController: UITableViewController {
                 println("Saved new Grocery to Core Data: \(grocery)")
                 
                 // Then reload the data for TableView
-                self.groceryList.addGrocery(grocery)
+                self.groceries.append(grocery)
                 self.tableView.reloadData()
             }))
             
@@ -91,10 +95,10 @@ class GroceryTableViewController: UITableViewController {
         // Return the number of rows in the section.
         
         if section == UN_PURCHASED_SECTION {
-            return self.groceryList.unpurchasedGroceries.count
+            return self.unpurchasedGroceries.count
         }
         else if section == YES_PURCHASED_SECTION {
-            return self.groceryList.purchasedGroceries.count
+            return self.purchasedGroceries.count
         }
         
         return 0
@@ -105,12 +109,13 @@ class GroceryTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("GroceryCell") as? GroceryTableViewCell
         
         if indexPath.section == UN_PURCHASED_SECTION {
-            var grocery = self.groceryList.unpurchasedGroceries[indexPath.row]
+            
+            var grocery = self.unpurchasedGroceries[indexPath.row]
             cell?.assignGrocery(grocery)
         }
             
         else if indexPath.section == YES_PURCHASED_SECTION {
-            var grocery = self.groceryList.purchasedGroceries[indexPath.row]
+            var grocery = self.purchasedGroceries[indexPath.row]
             cell?.assignGrocery(grocery)
         }
         
@@ -122,14 +127,15 @@ class GroceryTableViewController: UITableViewController {
         var grocery: Grocery?
         
         if indexPath.section == UN_PURCHASED_SECTION {
-            grocery = self.groceryList.unpurchasedGroceries[indexPath.row]
+            
+            grocery = self.unpurchasedGroceries[indexPath.row]
         }
             
         else if indexPath.section == YES_PURCHASED_SECTION {
-            grocery = self.groceryList.purchasedGroceries[indexPath.row]
+            grocery = self.purchasedGroceries[indexPath.row]
         }
         
-        if let term = grocery?.itemName {
+        if let term = grocery?.draftName {
             println("Selected grocery with search term = \(term)")
             
             // Assign search term for the suggestions vew
@@ -145,33 +151,37 @@ class GroceryTableViewController: UITableViewController {
         return true
     }
 
-    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the grocery from the list
             
+            var grocery: Grocery?
             if indexPath.section == UN_PURCHASED_SECTION {
-                let grocery = self.groceryList.unpurchasedGroceries[indexPath.row]
-                self.groceryList.deleteGrocery(grocery)
-                
+                grocery = self.unpurchasedGroceries[indexPath.row]
             }
                 
             else if indexPath.section == YES_PURCHASED_SECTION {
-                let grocery = self.groceryList.purchasedGroceries[indexPath.row]
-                self.groceryList.deleteGrocery(grocery)
+                grocery = self.purchasedGroceries[indexPath.row]
             }
             
-            tableView.reloadData()
+            if let g = grocery {
+                CoreDataManager.sharedInstance.deleteGrocery(g, completionHandler: ({
+                    (error: NSError?) in
+                    
+                    if error != nil {
+                        println(error!.localizedDescription)
+                    }
+                    
+                    // Then reload the data for TableView
+                    self.tableView.reloadData()
+                }))
+                
+                tableView.reloadData()
+            }
         }
         else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-            
-//            var newGrocery = Grocery()
-//            groceryList.append(newGrocery)
-            
-            tableView.reloadData()
-            
         }    
     }
 
