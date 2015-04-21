@@ -58,6 +58,8 @@ class CoreDataManager: NSObject {
         
         managedObjectContext!.deleteObject(grocery)
         
+        self.saveContext()
+        
         completionHandler(error: nil)
     }
     

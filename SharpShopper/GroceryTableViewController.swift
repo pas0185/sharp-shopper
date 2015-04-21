@@ -168,16 +168,18 @@ class GroceryTableViewController: UITableViewController {
             if let g = grocery {
                 CoreDataManager.sharedInstance.deleteGrocery(g, completionHandler: ({
                     (error: NSError?) in
-                    
+                    println("Deleted grocery")
                     if error != nil {
                         println(error!.localizedDescription)
+                    }
+                    
+                    if let index = find(self.groceries, g) {
+                        self.groceries.removeAtIndex(index)
                     }
                     
                     // Then reload the data for TableView
                     self.tableView.reloadData()
                 }))
-                
-                tableView.reloadData()
             }
         }
         else if editingStyle == .Insert {
