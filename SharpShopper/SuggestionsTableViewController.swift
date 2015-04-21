@@ -11,7 +11,10 @@ import UIKit
 class SuggestionsTableViewController: UITableViewController {
 
     var suggestedGroceries = [Grocery]()
-    var suggestionTerm: String?
+    
+    var grocery: Grocery?
+    
+//    var suggestionTerm: String?
     let walmartClient = WalmartAPI()
     
     override func viewDidLoad() {
@@ -21,23 +24,22 @@ class SuggestionsTableViewController: UITableViewController {
         self.tableView.registerNib(UINib(nibName: "GroceryTableViewCell", bundle: nil), forCellReuseIdentifier: "GroceryCell")
         self.tableView.estimatedRowHeight = 70;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
-        
-        // Remove all old groceries
-        self.suggestedGroceries.removeAll(keepCapacity: true)
-        
-        // Go fetch suggestions for the term
-        if let term = suggestionTerm {
-            self.performSearchForTerm(term)
-        }
     }
 
     override func viewDidAppear(animated: Bool) {
-        self.performSearchForTerm(suggestionTerm)
+        
+        // Remove all old groceries
+        self.suggestedGroceries.removeAll(keepCapacity: true)
+        self.tableView.reloadData()
+        
+        // Go fetch suggestions for the term
+        if let term = grocery?.name {
+            self.performSearchForTerm(term)
+        }
+        
     }
     
     func performSearchForTerm(term: String?) {
-    
-        self.suggestedGroceries.removeAll(keepCapacity: true)
         
         if let searchTerm = term {
             println("SuggestionsViewController performing search for term: \(searchTerm)")
@@ -83,9 +85,21 @@ class SuggestionsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
-        var grocery = self.suggestedGroceries[indexPath.row]
+        var selectedGrocery = self.suggestedGroceries[indexPath.row]
+
+        grocery?.itemID = selectedGrocery.itemID
+        grocery?.itemName = selectedGrocery.itemName
+        grocery?.itemDescription = selectedGrocery.itemDescription
+        grocery?.itemCategory = selectedGrocery.itemCategory
+        grocery?.itemImageURL = selectedGrocery.itemImageURL
+        grocery?.price = selectedGrocery.price
         
+        grocery?.purchased = false
+        println("Selected detailed grocery: \(grocery)")
         
+        CoreDataManager.sharedInstance.saveContext()
+        self.navigationController?.popViewControllerAnimated(true)
+
     }
 
 

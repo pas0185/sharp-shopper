@@ -42,7 +42,7 @@ class CoreDataManager: NSObject {
 
         let entity = NSEntityDescription.entityForName("Grocery", inManagedObjectContext: self.managedObjectContext!)
         var grocery = Grocery(entity: entity!, insertIntoManagedObjectContext: self.managedObjectContext!)
-        grocery.draftName = groceryName
+        grocery.draftName = self.stripped(groceryName)
         grocery.itemName = ""
         grocery.itemCategory = ""
         grocery.itemDescription = ""
@@ -72,5 +72,13 @@ class CoreDataManager: NSObject {
                 NSLog("Unresolved error \(error), \(error!.userInfo)")
             }
         }
+    }
+    
+    func stripped(string: String?) -> String {
+        if let newString = string?.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceAndNewlineCharacterSet()) {
+            return newString
+        }
+        
+        return ""
     }
 }

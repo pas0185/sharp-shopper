@@ -34,6 +34,14 @@ class GroceryTableViewController: UITableViewController {
         self.tableView.estimatedRowHeight = 70;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         
+        // 'Edit' and 'Add' buttons
+        self.navigationItem.leftBarButtonItem = self.editButtonItem()
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addGrocery")
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        
+        // Fetch list from Core Data
         CoreDataManager.sharedInstance.fetchGroceryList() {
             (groceries: [Grocery]) in
             
@@ -42,10 +50,6 @@ class GroceryTableViewController: UITableViewController {
             self.groceries = groceries
             self.tableView.reloadData()
         }
-
-        // 'Edit' and 'Add' buttons
-        self.navigationItem.leftBarButtonItem = self.editButtonItem()
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addGrocery")
     }
     
     func addGrocery() {
@@ -128,20 +132,12 @@ class GroceryTableViewController: UITableViewController {
         
         if indexPath.section == UN_PURCHASED_SECTION {
             
-            grocery = self.unpurchasedGroceries[indexPath.row]
+            self.suggestionsViewController.grocery = self.unpurchasedGroceries[indexPath.row]
+            self.navigationController?.pushViewController(self.suggestionsViewController, animated: true)
         }
             
         else if indexPath.section == YES_PURCHASED_SECTION {
-            grocery = self.purchasedGroceries[indexPath.row]
-        }
-        
-        if let term = grocery?.draftName {
-            println("Selected grocery with search term = \(term)")
-            
-            // Assign search term for the suggestions vew
-            self.suggestionsViewController.suggestionTerm = term
-            
-            // Present the suggestions
+            self.suggestionsViewController.grocery = self.purchasedGroceries[indexPath.row]
             self.navigationController?.pushViewController(self.suggestionsViewController, animated: true)
         }
     }
