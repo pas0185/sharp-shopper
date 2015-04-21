@@ -72,6 +72,8 @@ class GroceryList: NSObject, NSXMLParserDelegate {
             self.items.append(grocery)
         }
         
+        self.delegate?.groceryListDataDidChange()
+        
     }
     func fetchGroceriesFromCoreData() {
         let fetchRequest = NSFetchRequest(entityName: "Grocery")

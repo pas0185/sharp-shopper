@@ -18,6 +18,5 @@ protocol GroceryListUpdateDelegate {
     
     
     func groceryListDataDidChange()
-    
     func didChooseGrocery(grocery: Grocery)
 }

@@ -11,7 +11,6 @@
 		155953BD1AC1B7D3005777A4 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 155953BC1AC1B7D3005777A4 /* Keys.plist */; };
 		155953C41ACB9A4A005777A4 /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155953C31ACB9A4A005777A4 /* GroceryList.swift */; };
 		155C68511AE4372C00132EC5 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C68501AE4372C00132EC5 /* SwiftyJSON.swift */; };
-		155C68541AE4A6C200132EC5 /* ClientAPIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C68531AE4A6C200132EC5 /* ClientAPIDelegate.swift */; };
 		15D40D451ADF30ED005AA474 /* GroceryListUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D40D441ADF30ED005AA474 /* GroceryListUpdateDelegate.swift */; };
 		15D40D4B1AE07F2A005AA474 /* SupermarketAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D40D4A1AE07F2A005AA474 /* SupermarketAPI.swift */; };
 		15D40D4D1AE31FA9005AA474 /* WalmartAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D40D4C1AE31FA9005AA474 /* WalmartAPI.swift */; };
@@ -44,7 +43,6 @@
 		155953BE1AC1B89F005777A4 /* SharpShopper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SharpShopper-Bridging-Header.h"; sourceTree = "<group>"; };
 		155953C31ACB9A4A005777A4 /* GroceryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroceryList.swift; path = models/GroceryList.swift; sourceTree = "<group>"; };
 		155C68501AE4372C00132EC5 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
-		155C68531AE4A6C200132EC5 /* ClientAPIDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientAPIDelegate.swift; sourceTree = "<group>"; };
 		15D40D441ADF30ED005AA474 /* GroceryListUpdateDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListUpdateDelegate.swift; sourceTree = "<group>"; };
 		15D40D4A1AE07F2A005AA474 /* SupermarketAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupermarketAPI.swift; sourceTree = "<group>"; };
 		15D40D4C1AE31FA9005AA474 /* WalmartAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalmartAPI.swift; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 		155C68521AE4A69400132EC5 /* Delegate Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				155C68531AE4A6C200132EC5 /* ClientAPIDelegate.swift */,
 				15D40D441ADF30ED005AA474 /* GroceryListUpdateDelegate.swift */,
 			);
 			name = "Delegate Protocols";
@@ -288,7 +285,6 @@
 			files = (
 				CDD53FC11A84384200791912 /* SharpShopper.xcdatamodeld in Sources */,
 				CDD53FE61A8553FC00791912 /* GroceryTableViewCell.swift in Sources */,
-				155C68541AE4A6C200132EC5 /* ClientAPIDelegate.swift in Sources */,
 				15D40D4B1AE07F2A005AA474 /* SupermarketAPI.swift in Sources */,
 				155C68511AE4372C00132EC5 /* SwiftyJSON.swift in Sources */,
 				155953C41ACB9A4A005777A4 /* GroceryList.swift in Sources */,

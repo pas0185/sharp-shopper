@@ -57,7 +57,6 @@ class Grocery: NSManagedObject {
             newGrocery.purchased = purchased
             newGrocery.price = price!
             
-            println("Successfully parsed Grocery object")
             return newGrocery
         }
         

@@ -8,59 +8,75 @@
 
 import UIKit
 
-class SuggestionsTableViewController: UITableViewController, ClientAPIDelegate {
+class SuggestionsTableViewController: UITableViewController, GroceryListUpdateDelegate {
 
     var suggestedGroceries: [Grocery] = []
     
     var suggestionTerm: String?
     
-    var walmartClient: WalmartAPI?
+    let walmartClient = WalmartAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        println("SuggestionsTableViewController viewDidLoad")
-        self.walmartClient = WalmartAPI(delegate: self)
+        self.navigationItem.title = "SharpShopper"
         
         self.tableView.registerNib(UINib(nibName: "GroceryTableViewCell", bundle: nil), forCellReuseIdentifier: "GroceryCell")
 
         self.tableView.estimatedRowHeight = 70;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         
-        
-        self.performSearchForTerm(suggestionTerm)
-//        self.fetchNetworkGroceries()
+//        self.performSearchForTerm(suggestionTerm)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewDidAppear(animated: Bool) {
+        self.performSearchForTerm(suggestionTerm)
     }
     
     func performSearchForTerm(term: String?) {
     
-        if term != nil && self.walmartClient != nil {
-            println("SuggestionsViewController performing search for term")
-            walmartClient!.searchByProductName(term!)
+        self.suggestedGroceries.removeAll(keepCapacity: true)
+        
+        if let searchTerm = term {
+            println("SuggestionsViewController performing search for term: \(searchTerm)")
+            walmartClient.searchByProductName(searchTerm) {
+                (groceryData: NSData) in
+                
+                // Initialize a GroceryList with the data
+                var groceryList = GroceryList(data: groceryData)
+                
+                // Use the groceries for this TableView
+                self.suggestedGroceries = groceryList.items
+                
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.tableView.reloadData()
+                }
+            }
         }
+    }
+    
+    //MARK: GroceryListUpdateDelegate Methods
+    func didAddToList(grocery: Grocery) {
         
     }
     
-
-    //MARK: - ClientAPIDelegate Methods
-
-    func foundNetworkGroceries(groceryListData data: NSData) {
-     
-        // Initialize a GroceryList with the data
-        var groceryList = GroceryList(data: data)
-        
-        // Use the groceries for this TableView
-        self.suggestedGroceries = groceryList.items
+    func didPurchase(grocery: Grocery) {
+    
+    }
+    
+    func didUnPurchase(grocery: Grocery) {
+    
+    }
+    
+    func groceryListDataDidChange() {
         self.tableView.reloadData()
+    }
+    
+    func didChooseGrocery(grocery: Grocery) {
         
     }
     
-    // MARK: - Table view data source
+    //MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
@@ -79,8 +95,6 @@ class SuggestionsTableViewController: UITableViewController, ClientAPIDelegate {
         var grocery = self.suggestedGroceries[indexPath.row]
         cell?.assignGrocery(grocery)
         
-//        cell?.delegate = self
-        
         return cell!
     }
     
@@ -88,13 +102,5 @@ class SuggestionsTableViewController: UITableViewController, ClientAPIDelegate {
         
     }
 
-    // MARK: - GroceryListUpdateDelegate Methods
-    
-    func didChooseGrocery(grocery: Grocery) {
-        
-    }
-    
-    func groceryListDataDidChange() {
-        self.tableView.reloadData()
-    }
+
 }
