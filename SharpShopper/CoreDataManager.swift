@@ -45,9 +45,9 @@ class CoreDataManager: NSObject {
 
         var grocery = Grocery.createInManagedObjectContext(managedObjectContext!, itemID: "", itemName: groceryName, itemDescription: "", itemCategory: "", itemImageURL: "", purchased: false, price: 0)
         
-        
         self.saveContext()
         
+        completionHandler(grocery: grocery)
     }
     
     // MARK: - Core Data Saving support

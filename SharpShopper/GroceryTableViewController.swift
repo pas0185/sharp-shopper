@@ -61,6 +61,7 @@ class GroceryTableViewController: UITableViewController {
             // Pull Grocery's name from the text field
             let textField = alert.textFields![0] as! UITextField
             var text = textField.text
+            println("About to save grocery: \(text) into Core Data")
             
             // Save it into Core Data
             CoreDataManager.sharedInstance.saveNewGrocery(text, completionHandler: ({
