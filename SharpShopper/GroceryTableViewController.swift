@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class GroceryTableViewController: UITableViewController, GroceryListUpdateDelegate {
+class GroceryTableViewController: UITableViewController {
     
     let UN_PURCHASED_SECTION = 0
     let YES_PURCHASED_SECTION = 1
@@ -27,7 +27,16 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
         self.tableView.estimatedRowHeight = 70;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         
-        self.groceryList.delegate = self
+        CoreDataManager.sharedInstance.fetchGroceryList() {
+            (list: GroceryList) in
+            
+            println("Fetched My Grocery List from Core Data: \(list.items.count) items")
+            
+            self.groceryList = list
+            
+            self.tableView.reloadData()
+        }
+        
         self.groceryList.fetchGroceriesFromCoreData()
 
         // 'Edit' and 'Add' buttons
@@ -48,31 +57,33 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
         
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
         alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler:{ (alertAction:UIAlertAction!) in
+
+            // Pull Grocery's name from the text field
             let textField = alert.textFields![0] as! UITextField
+            var text = textField.text
             
-            var groceryName = textField.text
-            if let moc = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext {
-                var grocery = Grocery.createInManagedObjectContext(moc, itemID: "", itemName: groceryName, itemDescription: "", itemCategory: "", itemImageURL: "", purchased: false, price: 0)
+            // Save it into Core Data
+            CoreDataManager.sharedInstance.saveNewGrocery(text, completionHandler: ({
+                (grocery: Grocery) in
+            
+                println("Saved new Grocery to Core Data: \(grocery)")
                 
+                // Then reload the data for TableView
                 self.groceryList.addGrocery(grocery)
                 self.tableView.reloadData()
-            }
+            }))
+            
         }))
         
         self.presentViewController(alert, animated: true, completion: nil)
 
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     // MARK: - TableView Methods
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // Return the number of sections.
-        return 3
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -102,7 +113,6 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
             cell?.assignGrocery(grocery)
         }
         
-        cell?.delegate = self
         return cell!
     }
     
@@ -162,32 +172,6 @@ class GroceryTableViewController: UITableViewController, GroceryListUpdateDelega
             tableView.reloadData()
             
         }    
-    }
-    
-    // MARK: - GroceryListUpdateDelegate Methods
-    
-    func didAddToList(grocery: Grocery) {
-        
-        self.groceryList.addGrocery(grocery)
-    }
-    
-    func didPurchase(grocery: Grocery) {
-        //FIXME unimplemented didPurchase function
-    }
-    
-    func didUnPurchase(grocery: Grocery) {
-        //FIXME unimplemented didUnPurchase function
-    }
-    
-    
-    func didChooseGrocery(grocery: Grocery) {
-        
-        grocery.purchased = !grocery.purchased
-        self.tableView.reloadData()
-    }
-    
-    func groceryListDataDidChange() {
-        self.tableView.reloadData()
     }
 
     /*

@@ -18,19 +18,11 @@ class Grocery: NSManagedObject {
     @NSManaged var itemCategory: String
     @NSManaged var itemImageURL: String
     
-    
     /* User status fields */
     @NSManaged var isOnGroceryList: Bool
     @NSManaged var purchased: Bool
-    // TODO: make this a computed property
-    // when modified, notify the delegate
-    //
-    //         self.delegate?.groceryListDataDidChange()
-    //
     
     @NSManaged var price: Double
-
-    var delegate: GroceryListUpdateDelegate?
     
     class func createInManagedObjectContext(moc: NSManagedObjectContext?, itemID: String?, itemName: String?, itemDescription: String?, itemCategory: String?, itemImageURL: String?, purchased: Bool, price: Double?) -> Grocery {
         

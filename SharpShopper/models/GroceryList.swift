@@ -14,7 +14,6 @@ import CoreData
 class GroceryList: NSObject, NSXMLParserDelegate {
     
     var items: [Grocery] = []
-    var delegate: GroceryListUpdateDelegate?
     
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -37,6 +36,12 @@ class GroceryList: NSObject, NSXMLParserDelegate {
     
     override init() {
         super.init()
+    }
+    
+    init(groceries: [Grocery]) {
+        super.init()
+        
+        self.items = groceries
     }
     
     init(data: NSData) {
@@ -71,9 +76,6 @@ class GroceryList: NSObject, NSXMLParserDelegate {
             
             self.items.append(grocery)
         }
-        
-        self.delegate?.groceryListDataDidChange()
-        
     }
     func fetchGroceriesFromCoreData() {
         let fetchRequest = NSFetchRequest(entityName: "Grocery")
@@ -96,10 +98,10 @@ class GroceryList: NSObject, NSXMLParserDelegate {
         self.items.append(grocery)
         
         // Save in Core Data
-        self.appDelegate.saveContext()
+//        self.appDelegate.saveContext()
         
         // Tell delegate that data has changed
-        self.delegate?.groceryListDataDidChange()
+//        self.delegate?.groceryListDataDidChange()
     }
     
     func deleteGrocery(grocery: Grocery) {
@@ -111,7 +113,7 @@ class GroceryList: NSObject, NSXMLParserDelegate {
         self.fetchGroceriesFromCoreData()
         
         // Tell delegate that data has changed
-        self.delegate?.groceryListDataDidChange()
+//        self.delegate?.groceryListDataDidChange()
     }
     
     func didUpdateGrocery(grocery: Grocery, property: String, newValue: String) {

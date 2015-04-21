@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SuggestionsTableViewController: UITableViewController, GroceryListUpdateDelegate {
+class SuggestionsTableViewController: UITableViewController {
 
     var suggestedGroceries: [Grocery] = []
     
@@ -25,8 +25,6 @@ class SuggestionsTableViewController: UITableViewController, GroceryListUpdateDe
 
         self.tableView.estimatedRowHeight = 70;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
-        
-//        self.performSearchForTerm(suggestionTerm)
     }
 
     override func viewDidAppear(animated: Bool) {
@@ -55,26 +53,6 @@ class SuggestionsTableViewController: UITableViewController, GroceryListUpdateDe
         }
     }
     
-    //MARK: GroceryListUpdateDelegate Methods
-    func didAddToList(grocery: Grocery) {
-        
-    }
-    
-    func didPurchase(grocery: Grocery) {
-    
-    }
-    
-    func didUnPurchase(grocery: Grocery) {
-    
-    }
-    
-    func groceryListDataDidChange() {
-        self.tableView.reloadData()
-    }
-    
-    func didChooseGrocery(grocery: Grocery) {
-        
-    }
     
     //MARK: - Table view data source
 
@@ -99,6 +77,9 @@ class SuggestionsTableViewController: UITableViewController, GroceryListUpdateDe
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+
+        var grocery = self.suggestedGroceries[indexPath.row]
+        
         
     }
 
