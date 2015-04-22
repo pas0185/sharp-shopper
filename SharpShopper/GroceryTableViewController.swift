@@ -94,6 +94,8 @@ class GroceryTableViewController: UITableViewController {
                 // Then reload the data for TableView
                 self.groceries.append(grocery)
                 self.tableView.reloadData()
+                
+                // TODO: load the viewcontroller to choose which Grocery from WalmartAPI or SupermarketAPI
             }))
             
         }))

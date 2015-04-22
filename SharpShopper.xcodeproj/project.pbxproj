@@ -86,7 +86,6 @@
 				15E8C5BC1AD60E0600AF91EF /* SuggestionsTableViewController.swift */,
 				CDD53FE41A8553FC00791912 /* GroceryTableViewCell.swift */,
 				CDD53FE51A8553FC00791912 /* GroceryTableViewCell.xib */,
-				CDD53FCB1A84384200791912 /* LaunchScreen.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -137,6 +136,7 @@
 		CDD53FBB1A84384200791912 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CDD53FCB1A84384200791912 /* LaunchScreen.xib */,
 				CDD53FBF1A84384200791912 /* SharpShopper.xcdatamodeld */,
 				155C68501AE4372C00132EC5 /* SwiftyJSON.swift */,
 				155953BC1AC1B7D3005777A4 /* Keys.plist */,

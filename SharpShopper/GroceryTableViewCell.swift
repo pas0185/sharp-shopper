@@ -19,6 +19,7 @@ class GroceryTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         if let grocery = self.myGrocery {
+            
             self.buyButton.selected = grocery.purchased
             self.nameLabel.text = grocery.name
             
@@ -56,9 +57,13 @@ class GroceryTableViewCell: UITableViewCell {
     }
     
     @IBAction func buyButtonPressed(sender: UIButton) {
+
+        // Toggle the button
+        var selected = self.buyButton.selected
+        self.buyButton.selected = !selected
         
-//        sender.selected = !sender.selected
-//        self.myGrocery.purchased = sender.selected
-        
+        // Update the corresponding grocery
+        self.myGrocery.purchased = self.buyButton.selected
+        CoreDataManager.sharedInstance.saveContext()
     }
 }
