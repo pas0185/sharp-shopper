@@ -1,0 +1,503 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4F2EBBC2F7719F041854D081 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B33DFCE83412249194D8E2 /* Foundation.framework */; };
+		7351E6149650AB48B6D474CA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4B33DFCE83412249194D8E2 /* Foundation.framework */; };
+		771A8510715AA14A443A216C /* Pods-SharpShopper-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCA94C953917C30C3FA4060 /* Pods-SharpShopper-dummy.m */; };
+		C2C84A1D53A5DF9F6E359D7D /* Pods-SharpShopper-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A14E99084F17661F16E37D4D /* Pods-SharpShopper-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F052EE10A8B613706E1C694F /* Pods-SharpShopper-SWXMLHash-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 42C72EC1FDF4C098A3D7D635 /* Pods-SharpShopper-SWXMLHash-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F1C0554491B41EF9092D681B /* Pods-SharpShopper-SWXMLHash-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 16B98B4C0829A68894965BEE /* Pods-SharpShopper-SWXMLHash-dummy.m */; };
+		F4FCE28D0785193822FF7036 /* SWXMLHash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B41260156ACE4B87A9EF56F /* SWXMLHash.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3DD32138EBC4EF4C5B2ED13E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5B855C61C0D0A02240676348 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8220BD291B61732C343C2E45;
+			remoteInfo = "Pods-SharpShopper-SWXMLHash";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0DC494C06D03DBC775D66BFD /* SWXMLHash.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SWXMLHash.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0EE58F5C2E3457D36ED48296 /* Pods-SharpShopper-SWXMLHash.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SharpShopper-SWXMLHash.modulemap"; sourceTree = "<group>"; };
+		16B98B4C0829A68894965BEE /* Pods-SharpShopper-SWXMLHash-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SharpShopper-SWXMLHash-dummy.m"; sourceTree = "<group>"; };
+		16D07E9077E47174A86DC570 /* Pods_SharpShopper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharpShopper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		35C3904F63514CCA5DF78EBA /* Pods-SharpShopper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SharpShopper.debug.xcconfig"; sourceTree = "<group>"; };
+		363AB2309386D797AC45448A /* Pods-SharpShopper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SharpShopper.release.xcconfig"; sourceTree = "<group>"; };
+		3B522CB3D4B9895D917591DA /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		42C72EC1FDF4C098A3D7D635 /* Pods-SharpShopper-SWXMLHash-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SharpShopper-SWXMLHash-umbrella.h"; sourceTree = "<group>"; };
+		4A2485EE212D0D02108627A6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4FC384488452C22204B2FDDD /* Pods-SharpShopper-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SharpShopper-environment.h"; sourceTree = "<group>"; };
+		5B41260156ACE4B87A9EF56F /* SWXMLHash.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SWXMLHash.swift; path = Source/SWXMLHash.swift; sourceTree = "<group>"; };
+		60D4C2728C6017C585B29B60 /* Pods-SharpShopper-SWXMLHash-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SharpShopper-SWXMLHash-Private.xcconfig"; sourceTree = "<group>"; };
+		7250AEA467A3F5D69E50D52B /* Pods-SharpShopper-SWXMLHash-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SharpShopper-SWXMLHash-prefix.pch"; sourceTree = "<group>"; };
+		A00E3BCE6DB3B17CDA06795F /* Pods-SharpShopper.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-SharpShopper.modulemap"; sourceTree = "<group>"; };
+		A14E99084F17661F16E37D4D /* Pods-SharpShopper-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SharpShopper-umbrella.h"; sourceTree = "<group>"; };
+		BF73BF67FF504467AC8CC375 /* Pods-SharpShopper-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SharpShopper-resources.sh"; sourceTree = "<group>"; };
+		BFCA94C953917C30C3FA4060 /* Pods-SharpShopper-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SharpShopper-dummy.m"; sourceTree = "<group>"; };
+		C4B33DFCE83412249194D8E2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		C89BADF82AD54B76A99CF959 /* Pods-SharpShopper-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SharpShopper-acknowledgements.plist"; sourceTree = "<group>"; };
+		D7CE3BB31869B59A30D568EA /* Pods-SharpShopper-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SharpShopper-acknowledgements.markdown"; sourceTree = "<group>"; };
+		E6103FE047026E9A5EBD4217 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6AAB77AEB2D69D1AF8E49DB /* Pods-SharpShopper-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SharpShopper-frameworks.sh"; sourceTree = "<group>"; };
+		FF5ABB77D440128A4F962F2C /* Pods-SharpShopper-SWXMLHash.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SharpShopper-SWXMLHash.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0B42EBDB58834B4CEFFE44C6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7351E6149650AB48B6D474CA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B9B4AD11AC8774A1E82BA51E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F2EBBC2F7719F041854D081 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3058062D76371EEEE40ADB3F /* Pods-SharpShopper */ = {
+			isa = PBXGroup;
+			children = (
+				E6103FE047026E9A5EBD4217 /* Info.plist */,
+				A00E3BCE6DB3B17CDA06795F /* Pods-SharpShopper.modulemap */,
+				D7CE3BB31869B59A30D568EA /* Pods-SharpShopper-acknowledgements.markdown */,
+				C89BADF82AD54B76A99CF959 /* Pods-SharpShopper-acknowledgements.plist */,
+				BFCA94C953917C30C3FA4060 /* Pods-SharpShopper-dummy.m */,
+				4FC384488452C22204B2FDDD /* Pods-SharpShopper-environment.h */,
+				F6AAB77AEB2D69D1AF8E49DB /* Pods-SharpShopper-frameworks.sh */,
+				BF73BF67FF504467AC8CC375 /* Pods-SharpShopper-resources.sh */,
+				A14E99084F17661F16E37D4D /* Pods-SharpShopper-umbrella.h */,
+				35C3904F63514CCA5DF78EBA /* Pods-SharpShopper.debug.xcconfig */,
+				363AB2309386D797AC45448A /* Pods-SharpShopper.release.xcconfig */,
+			);
+			name = "Pods-SharpShopper";
+			path = "Target Support Files/Pods-SharpShopper";
+			sourceTree = "<group>";
+		};
+		46DDDB1BE11BEA8F6E695275 = {
+			isa = PBXGroup;
+			children = (
+				3B522CB3D4B9895D917591DA /* Podfile */,
+				F1E6909FFEFAF241EADBBA88 /* Frameworks */,
+				D31AABA615526CB2B40DEAAA /* Pods */,
+				54A449CC8C63507439FC0A6D /* Products */,
+				690F3C36DDC59E056D0AAC46 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		484393FE715ADA1E9C28DFFE /* SWXMLHash */ = {
+			isa = PBXGroup;
+			children = (
+				5B41260156ACE4B87A9EF56F /* SWXMLHash.swift */,
+				9E33884DAEA3CDF51CEB4C9D /* Support Files */,
+			);
+			path = SWXMLHash;
+			sourceTree = "<group>";
+		};
+		4EBF809503B8BC645380DF1C /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C4B33DFCE83412249194D8E2 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		54A449CC8C63507439FC0A6D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				16D07E9077E47174A86DC570 /* Pods_SharpShopper.framework */,
+				0DC494C06D03DBC775D66BFD /* SWXMLHash.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		690F3C36DDC59E056D0AAC46 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3058062D76371EEEE40ADB3F /* Pods-SharpShopper */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		9E33884DAEA3CDF51CEB4C9D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				4A2485EE212D0D02108627A6 /* Info.plist */,
+				0EE58F5C2E3457D36ED48296 /* Pods-SharpShopper-SWXMLHash.modulemap */,
+				FF5ABB77D440128A4F962F2C /* Pods-SharpShopper-SWXMLHash.xcconfig */,
+				60D4C2728C6017C585B29B60 /* Pods-SharpShopper-SWXMLHash-Private.xcconfig */,
+				16B98B4C0829A68894965BEE /* Pods-SharpShopper-SWXMLHash-dummy.m */,
+				7250AEA467A3F5D69E50D52B /* Pods-SharpShopper-SWXMLHash-prefix.pch */,
+				42C72EC1FDF4C098A3D7D635 /* Pods-SharpShopper-SWXMLHash-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Pods-SharpShopper-SWXMLHash";
+			sourceTree = "<group>";
+		};
+		D31AABA615526CB2B40DEAAA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				484393FE715ADA1E9C28DFFE /* SWXMLHash */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F1E6909FFEFAF241EADBBA88 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4EBF809503B8BC645380DF1C /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DBCEB5850232828DEC8AB575 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C2C84A1D53A5DF9F6E359D7D /* Pods-SharpShopper-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC8051695777B6B9B04D7A27 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F052EE10A8B613706E1C694F /* Pods-SharpShopper-SWXMLHash-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8220BD291B61732C343C2E45 /* Pods-SharpShopper-SWXMLHash */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71B7CAE3C9C59A54DF4E5578 /* Build configuration list for PBXNativeTarget "Pods-SharpShopper-SWXMLHash" */;
+			buildPhases = (
+				7A03ECB029974212A214A0F3 /* Sources */,
+				0B42EBDB58834B4CEFFE44C6 /* Frameworks */,
+				DC8051695777B6B9B04D7A27 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-SharpShopper-SWXMLHash";
+			productName = "Pods-SharpShopper-SWXMLHash";
+			productReference = 0DC494C06D03DBC775D66BFD /* SWXMLHash.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B6B87B5DB4567B5D9DAB044A /* Pods-SharpShopper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 066A00CA20027FFD1DDBE463 /* Build configuration list for PBXNativeTarget "Pods-SharpShopper" */;
+			buildPhases = (
+				3F8C43640548516139D1167E /* Sources */,
+				B9B4AD11AC8774A1E82BA51E /* Frameworks */,
+				DBCEB5850232828DEC8AB575 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94F8037C84A3F6F5D32D91C9 /* PBXTargetDependency */,
+			);
+			name = "Pods-SharpShopper";
+			productName = "Pods-SharpShopper";
+			productReference = 16D07E9077E47174A86DC570 /* Pods_SharpShopper.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5B855C61C0D0A02240676348 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = 0FA09BEA7F6078D154130904 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 46DDDB1BE11BEA8F6E695275;
+			productRefGroup = 54A449CC8C63507439FC0A6D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B6B87B5DB4567B5D9DAB044A /* Pods-SharpShopper */,
+				8220BD291B61732C343C2E45 /* Pods-SharpShopper-SWXMLHash */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F8C43640548516139D1167E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				771A8510715AA14A443A216C /* Pods-SharpShopper-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7A03ECB029974212A214A0F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1C0554491B41EF9092D681B /* Pods-SharpShopper-SWXMLHash-dummy.m in Sources */,
+				F4FCE28D0785193822FF7036 /* SWXMLHash.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		94F8037C84A3F6F5D32D91C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-SharpShopper-SWXMLHash";
+			target = 8220BD291B61732C343C2E45 /* Pods-SharpShopper-SWXMLHash */;
+			targetProxy = 3DD32138EBC4EF4C5B2ED13E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		54626BF8139739E2760793FF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6BF17B60DD993CE8B4E304EE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				ONLY_ACTIVE_ARCH = YES;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		7383D809E11F44F0AB38290E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60D4C2728C6017C585B29B60 /* Pods-SharpShopper-SWXMLHash-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-SharpShopper-SWXMLHash/Pods-SharpShopper-SWXMLHash-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-SharpShopper-SWXMLHash/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-SharpShopper-SWXMLHash/Pods-SharpShopper-SWXMLHash.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = SWXMLHash;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8EB9CF5DAD93D6F40AEA84A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 363AB2309386D797AC45448A /* Pods-SharpShopper.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SharpShopper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-SharpShopper/Pods-SharpShopper.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_SharpShopper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D128C9093DED275C8EE2FBA4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35C3904F63514CCA5DF78EBA /* Pods-SharpShopper.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = "Target Support Files/Pods-SharpShopper/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-SharpShopper/Pods-SharpShopper.modulemap";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = Pods_SharpShopper;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DA3D6DC99D0590EFDEE85251 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 60D4C2728C6017C585B29B60 /* Pods-SharpShopper-SWXMLHash-Private.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/Pods-SharpShopper-SWXMLHash/Pods-SharpShopper-SWXMLHash-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Pods-SharpShopper-SWXMLHash/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/Pods-SharpShopper-SWXMLHash/Pods-SharpShopper-SWXMLHash.modulemap";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = SWXMLHash;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		066A00CA20027FFD1DDBE463 /* Build configuration list for PBXNativeTarget "Pods-SharpShopper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D128C9093DED275C8EE2FBA4 /* Debug */,
+				8EB9CF5DAD93D6F40AEA84A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0FA09BEA7F6078D154130904 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6BF17B60DD993CE8B4E304EE /* Debug */,
+				54626BF8139739E2760793FF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71B7CAE3C9C59A54DF4E5578 /* Build configuration list for PBXNativeTarget "Pods-SharpShopper-SWXMLHash" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7383D809E11F44F0AB38290E /* Debug */,
+				DA3D6DC99D0590EFDEE85251 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5B855C61C0D0A02240676348 /* Project object */;
+}

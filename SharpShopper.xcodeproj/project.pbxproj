@@ -18,6 +18,7 @@
 		15D40D4B1AE07F2A005AA474 /* SupermarketAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D40D4A1AE07F2A005AA474 /* SupermarketAPI.swift */; };
 		15D40D4D1AE31FA9005AA474 /* WalmartAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D40D4C1AE31FA9005AA474 /* WalmartAPI.swift */; };
 		15E8C5BD1AD60E0600AF91EF /* SuggestionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E8C5BC1AD60E0600AF91EF /* SuggestionsTableViewController.swift */; };
+		3C1C35DF0A1581DAF568D132 /* Pods_SharpShopper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6CF096D942D2FB67F8AE856 /* Pods_SharpShopper.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		CDD53FBE1A84384200791912 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FBD1A84384200791912 /* AppDelegate.swift */; };
 		CDD53FC11A84384200791912 /* SharpShopper.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CDD53FBF1A84384200791912 /* SharpShopper.xcdatamodeld */; };
 		CDD53FCA1A84384200791912 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CDD53FC91A84384200791912 /* Images.xcassets */; };
@@ -53,6 +54,7 @@
 		15D40D4A1AE07F2A005AA474 /* SupermarketAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupermarketAPI.swift; sourceTree = "<group>"; };
 		15D40D4C1AE31FA9005AA474 /* WalmartAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalmartAPI.swift; sourceTree = "<group>"; };
 		15E8C5BC1AD60E0600AF91EF /* SuggestionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionsTableViewController.swift; sourceTree = "<group>"; };
+		25CA28934F835E67BEDDFFE1 /* Pods-SharpShopper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharpShopper.release.xcconfig"; path = "Pods/Target Support Files/Pods-SharpShopper/Pods-SharpShopper.release.xcconfig"; sourceTree = "<group>"; };
 		CDD53FB81A84384200791912 /* SharpShopper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharpShopper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD53FBC1A84384200791912 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CDD53FBD1A84384200791912 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,8 @@
 		CDD53FE41A8553FC00791912 /* GroceryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryTableViewCell.swift; sourceTree = "<group>"; };
 		CDD53FE51A8553FC00791912 /* GroceryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GroceryTableViewCell.xib; sourceTree = "<group>"; };
 		CDD53FE91A85769000791912 /* GroceryListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryListTableViewController.swift; sourceTree = "<group>"; };
+		E4812FF5623663B7C5859854 /* Pods-SharpShopper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharpShopper.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SharpShopper/Pods-SharpShopper.debug.xcconfig"; sourceTree = "<group>"; };
+		F6CF096D942D2FB67F8AE856 /* Pods_SharpShopper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharpShopper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C1C35DF0A1581DAF568D132 /* Pods_SharpShopper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,12 +124,41 @@
 			name = APIs;
 			sourceTree = "<group>";
 		};
+		154F6E721AE8523200114020 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				155C68501AE4372C00132EC5 /* SwiftyJSON.swift */,
+				154F6E6E1AE84A8000114020 /* Utility.swift */,
+				154F6E701AE84F4B00114020 /* GroceryParser.swift */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		51E8765D8C953E018FB8130D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E4812FF5623663B7C5859854 /* Pods-SharpShopper.debug.xcconfig */,
+				25CA28934F835E67BEDDFFE1 /* Pods-SharpShopper.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AF77241160F7F5A52CFFBD6D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6CF096D942D2FB67F8AE856 /* Pods_SharpShopper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CDD53FAF1A84384200791912 = {
 			isa = PBXGroup;
 			children = (
 				CDD53FBA1A84384200791912 /* SharpShopper */,
 				CDD53FD51A84384200791912 /* SharpShopperTests */,
 				CDD53FB91A84384200791912 /* Products */,
+				51E8765D8C953E018FB8130D /* Pods */,
+				AF77241160F7F5A52CFFBD6D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -143,8 +177,7 @@
 				155953BE1AC1B89F005777A4 /* SharpShopper-Bridging-Header.h */,
 				154F1C231ADC485100EBA76C /* Constants.h */,
 				CDD53FBD1A84384200791912 /* AppDelegate.swift */,
-				154F6E6E1AE84A8000114020 /* Utility.swift */,
-				154F6E701AE84F4B00114020 /* GroceryParser.swift */,
+				154F6E721AE8523200114020 /* Utilities */,
 				154F6E6A1AE84A0D00114020 /* Data */,
 				154F6E671AE807F500114020 /* Views */,
 				CDD53FC91A84384200791912 /* Images.xcassets */,
@@ -158,7 +191,6 @@
 			children = (
 				CDD53FCB1A84384200791912 /* LaunchScreen.xib */,
 				CDD53FBF1A84384200791912 /* SharpShopper.xcdatamodeld */,
-				155C68501AE4372C00132EC5 /* SwiftyJSON.swift */,
 				155953BC1AC1B7D3005777A4 /* Keys.plist */,
 				CDD53FBC1A84384200791912 /* Info.plist */,
 			);
@@ -189,9 +221,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CDD53FDC1A84384200791912 /* Build configuration list for PBXNativeTarget "SharpShopper" */;
 			buildPhases = (
+				0293675A152B8D50507D4D66 /* Check Pods Manifest.lock */,
 				CDD53FB41A84384200791912 /* Sources */,
 				CDD53FB51A84384200791912 /* Frameworks */,
 				CDD53FB61A84384200791912 /* Resources */,
+				D2E9D35C7448E183BF36B51F /* Embed Pods Frameworks */,
+				9C573EAC334B70D81C663D87 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -278,6 +313,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0293675A152B8D50507D4D66 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9C573EAC334B70D81C663D87 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SharpShopper/Pods-SharpShopper-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2E9D35C7448E183BF36B51F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SharpShopper/Pods-SharpShopper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CDD53FB41A84384200791912 /* Sources */ = {
@@ -410,6 +493,7 @@
 		};
 		CDD53FDD1A84384200791912 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4812FF5623663B7C5859854 /* Pods-SharpShopper.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -423,6 +507,7 @@
 		};
 		CDD53FDE1A84384200791912 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25CA28934F835E67BEDDFFE1 /* Pods-SharpShopper.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

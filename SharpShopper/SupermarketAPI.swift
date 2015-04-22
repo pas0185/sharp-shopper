@@ -20,7 +20,6 @@ class SupermarketAPI: NSObject, NSXMLParserDelegate {
     var itemCategory: String?
     var itemImage: String?
     var itemID: String?
-    
 
     private var API_KEY: String {
         get {
@@ -65,12 +64,6 @@ class SupermarketAPI: NSObject, NSXMLParserDelegate {
     
     }
     
-//    func searchByProductName(name: String) -> [Grocery] {
-//        
-//        let url = NSURL(string: "\(API_URL)/SearchByProductName?APIKEY=\(API_KEY)&ItemName=\(name)")
-//        return self.parseToGroceryArrayFromURL(url!)
-//    }
-
     func parseToGroceryArrayFromURL(url: NSURL) -> [Grocery] {
         
         self.groceries = []
