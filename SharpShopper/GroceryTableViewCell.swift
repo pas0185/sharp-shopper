@@ -10,21 +10,29 @@ import UIKit
 
 class GroceryTableViewCell: UITableViewCell {
 
+    private let imageViewWidth = 80 as CGFloat
+    
     private var myGrocery: Grocery!
     
-    @IBOutlet weak var buyButton: UIButton!
+    @IBOutlet weak var checkBoxButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var gImageView: UIImageView!
+    @IBOutlet weak var descriptionLabel: UILabel!
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        if let grocery = self.myGrocery {
-            
-            self.buyButton.selected = grocery.purchased
-            self.nameLabel.text = grocery.name
-            
+    @IBOutlet weak var imageViewWidthContstraint: NSLayoutConstraint!
+    
+    var imageURL: String {
+        get {
+            return self.imageURL
+        }
+        set {
+            // Appropriately update content and constraints of the Image View
+
+            println("Setting ImageURL = \(newValue)")
             self.gImageView.image = nil
-            if let imageURL = NSURL(string: grocery.itemImageURL) {
+            self.imageViewWidthContstraint.constant = 0
+            
+            if let imageURL = NSURL(string: newValue) {
                 
                 let session = NSURLSession.sharedSession()
                 let task = session.dataTaskWithURL(imageURL, completionHandler: {data, response, error -> Void in
@@ -34,8 +42,9 @@ class GroceryTableViewCell: UITableViewCell {
                     }
                     
                     if let image = UIImage(data: data) {
-                    
+                        
                         dispatch_async(dispatch_get_main_queue(), {
+                            self.imageViewWidthContstraint.constant = self.imageViewWidth
                             self.gImageView.image = image
                         })
                     }
@@ -43,6 +52,46 @@ class GroceryTableViewCell: UITableViewCell {
                 
                 task.resume()
             }
+        
+        }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
+        self.backgroundColor = UIColor.clearColor()
+        
+        if let grocery = self.myGrocery {
+            
+            self.checkBoxButton.selected = grocery.purchased
+            self.nameLabel.text = grocery.title
+            self.descriptionLabel.text = grocery.subtitle
+            
+            self.imageURL = grocery.itemImageURL
+            
+            
+//            self.gImageView.image = nil
+//            self.imageViewWidthContstraint.constant = 0
+//            
+//            if let imageURL = NSURL(string: grocery.itemImageURL) {
+//                
+//                let session = NSURLSession.sharedSession()
+//                let task = session.dataTaskWithURL(imageURL, completionHandler: {data, response, error -> Void in
+//                    
+//                    if error != nil {
+//                        println(error.localizedDescription)
+//                    }
+//                    
+//                    if let image = UIImage(data: data) {
+//                    
+//                        dispatch_async(dispatch_get_main_queue(), {
+//                            self.gImageView.image = image
+//                        })
+//                    }
+//                })
+//                
+//                task.resume()
+//            }
         }
     }
 
@@ -56,14 +105,16 @@ class GroceryTableViewCell: UITableViewCell {
         self.myGrocery = grocery
     }
     
-    @IBAction func buyButtonPressed(sender: UIButton) {
+    @IBAction func checkBoxButtonPressed() {
 
-        // Toggle the button
-        var selected = self.buyButton.selected
-        self.buyButton.selected = !selected
+        // Toggle the checkbox
+        var selected = self.checkBoxButton.selected
+        self.checkBoxButton.selected = !selected
         
         // Update the corresponding grocery
-        self.myGrocery.purchased = self.buyButton.selected
+        self.myGrocery.purchased = self.checkBoxButton.selected
         CoreDataManager.sharedInstance.saveContext()
+    }
+    @IBAction func disclosureButtonPressed() {
     }
 }

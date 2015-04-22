@@ -20,17 +20,22 @@ class Grocery: NSManagedObject {
     @NSManaged var purchased: Bool
     @NSManaged var price: Double
     
-    var name: String {
+    var title: String {
         
-        if self.draftName != ""{
-            return draftName
+        if self.draftName != "" {
+            return self.draftName
         }
         
-        if self.itemName != ""{
-            return itemName
+        if self.itemName != "" {
+            return self.itemName
         }
         
         return ""
+    }
+    
+    var subtitle: String {
+        
+        return self.itemName
     }
     
     class func arrayFromJSON(data: NSData) -> [Grocery] {

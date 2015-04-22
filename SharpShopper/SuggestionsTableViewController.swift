@@ -32,7 +32,7 @@ class SuggestionsTableViewController: UITableViewController {
         self.tableView.reloadData()
         
         // Go fetch suggestions for the term
-        if let term = grocery?.name {
+        if let term = grocery?.title {
             self.performSearchForTerm(term)
         }
     }
