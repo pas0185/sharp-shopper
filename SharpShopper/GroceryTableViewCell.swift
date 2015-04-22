@@ -10,15 +10,17 @@ import UIKit
 
 class GroceryTableViewCell: UITableViewCell {
 
-    private let imageViewWidth = 80 as CGFloat
     
     private var myGrocery: Grocery!
+    
+    var delegate: GroceryCellDelegate?
     
     @IBOutlet weak var checkBoxButton: UIButton!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var gImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
     
+    private let imageViewWidth = 80 as CGFloat
     @IBOutlet weak var imageViewWidthContstraint: NSLayoutConstraint!
     
     var imageURL: String {
@@ -28,7 +30,6 @@ class GroceryTableViewCell: UITableViewCell {
         set {
             // Appropriately update content and constraints of the Image View
 
-            println("Setting ImageURL = \(newValue)")
             self.gImageView.image = nil
             self.imageViewWidthContstraint.constant = 0
             
@@ -44,6 +45,8 @@ class GroceryTableViewCell: UITableViewCell {
                     if let image = UIImage(data: data) {
                         
                         dispatch_async(dispatch_get_main_queue(), {
+                            
+                            // Image was successfully found
                             self.imageViewWidthContstraint.constant = self.imageViewWidth
                             self.gImageView.image = image
                         })
@@ -68,30 +71,6 @@ class GroceryTableViewCell: UITableViewCell {
             self.descriptionLabel.text = grocery.subtitle
             
             self.imageURL = grocery.itemImageURL
-            
-            
-//            self.gImageView.image = nil
-//            self.imageViewWidthContstraint.constant = 0
-//            
-//            if let imageURL = NSURL(string: grocery.itemImageURL) {
-//                
-//                let session = NSURLSession.sharedSession()
-//                let task = session.dataTaskWithURL(imageURL, completionHandler: {data, response, error -> Void in
-//                    
-//                    if error != nil {
-//                        println(error.localizedDescription)
-//                    }
-//                    
-//                    if let image = UIImage(data: data) {
-//                    
-//                        dispatch_async(dispatch_get_main_queue(), {
-//                            self.gImageView.image = image
-//                        })
-//                    }
-//                })
-//                
-//                task.resume()
-//            }
         }
     }
 
@@ -108,13 +87,16 @@ class GroceryTableViewCell: UITableViewCell {
     @IBAction func checkBoxButtonPressed() {
 
         // Toggle the checkbox
-        var selected = self.checkBoxButton.selected
-        self.checkBoxButton.selected = !selected
-        
-        // Update the corresponding grocery
-        self.myGrocery.purchased = self.checkBoxButton.selected
-        CoreDataManager.sharedInstance.saveContext()
+        var oldSelected = self.checkBoxButton.selected
+        self.checkBoxButton.selected = !oldSelected
+
+        self.delegate?.didUpdatePurchaseValueForGrocery(self.myGrocery, newValue: !oldSelected)
     }
+    
     @IBAction func disclosureButtonPressed() {
+        
+        // Call a delegate/completion handler
+        self.delegate?.didSelectDisclosure(forGrocery: self.myGrocery)
+        
     }
 }

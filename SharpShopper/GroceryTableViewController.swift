@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class GroceryTableViewController: UITableViewController {
+class GroceryTableViewController: UITableViewController, GroceryCellDelegate {
     
     var groceries = [Grocery]()
     
@@ -96,12 +96,30 @@ class GroceryTableViewController: UITableViewController {
                 self.tableView.reloadData()
                 
                 // TODO: load the viewcontroller to choose which Grocery from WalmartAPI or SupermarketAPI
+                
+                
             }))
             
         }))
         
         self.presentViewController(alert, animated: true, completion: nil)
 
+    }
+    
+    // MARK: - GroceryCellDelegate Methods
+    
+    func didSelectDisclosure(forGrocery grocery: Grocery) {
+        
+        self.suggestionsViewController.grocery = grocery
+        self.navigationController?.pushViewController(self.suggestionsViewController, animated: true)
+    }
+    
+    func didUpdatePurchaseValueForGrocery(grocery: Grocery, newValue: Bool) {
+        
+        grocery.purchased = newValue
+        CoreDataManager.sharedInstance.saveContext()
+        
+        self.tableView.reloadData()
     }
     
     // MARK: - TableView Methods
@@ -126,38 +144,23 @@ class GroceryTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 
-        let cell = tableView.dequeueReusableCellWithIdentifier("GroceryCell") as? GroceryTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("GroceryCell") as! GroceryTableViewCell
+        
+        cell.delegate = self
         
         if indexPath.section == UN_PURCHASED_SECTION {
-            
             var grocery = self.unpurchasedGroceries[indexPath.row]
-            cell?.assignGrocery(grocery)
+            cell.assignGrocery(grocery)
         }
             
         else if indexPath.section == YES_PURCHASED_SECTION {
             var grocery = self.purchasedGroceries[indexPath.row]
-            cell?.assignGrocery(grocery)
+            cell.assignGrocery(grocery)
         }
         
-        return cell!
+        return cell
     }
-    
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        var grocery: Grocery?
-        
-        if indexPath.section == UN_PURCHASED_SECTION {
-            
-            self.suggestionsViewController.grocery = self.unpurchasedGroceries[indexPath.row]
-            self.navigationController?.pushViewController(self.suggestionsViewController, animated: true)
-        }
-            
-        else if indexPath.section == YES_PURCHASED_SECTION {
-            self.suggestionsViewController.grocery = self.purchasedGroceries[indexPath.row]
-            self.navigationController?.pushViewController(self.suggestionsViewController, animated: true)
-        }
-    }
-    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return true because we will allow users to add and delete groceries
         return true
