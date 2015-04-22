@@ -10,8 +10,6 @@ import Foundation
 
 class SupermarketAPI: NSObject, NSXMLParserDelegate {
     
-    let API_URL = "http://www.SupermarketAPI.com/api.asmx"
-
     var groceries: [Grocery]?
     
     var parser: NSXMLParser?
@@ -23,25 +21,55 @@ class SupermarketAPI: NSObject, NSXMLParserDelegate {
     var itemImage: String?
     var itemID: String?
     
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
-    private var APIKey: String {
+    private var API_KEY: String {
         get {
             
             var bundle = NSBundle.mainBundle()
             var file = bundle.pathForResource("Keys", ofType: "plist")!
             var dict = NSDictionary(contentsOfFile: file)
             
-            var key = dict?.objectForKey("SUPERMARKET_API_KEY") as! String
-            return key
+            return dict?.objectForKey("SUPERMARKET_API_KEY") as! String
         }
     }
     
-    func searchByProductName(name: String) -> [Grocery] {
+    private var API_URL: String {
+        get {
+            
+            var bundle = NSBundle.mainBundle()
+            var file = bundle.pathForResource("Keys", ofType: "plist")!
+            var dict = NSDictionary(contentsOfFile: file)
+            
+            return dict?.objectForKey("SUPERMARKET_API_URL") as! String
+        }
         
-        let url = NSURL(string: "\(API_URL)/SearchByProductName?APIKEY=\(APIKey)&ItemName=\(name)")
-        return self.parseToGroceryArrayFromURL(url!)
     }
+    
+    func search(searchTerm: String, completion: (XMLGroceryData: NSData) -> Void) {
+        println("Supermarket API starting search for: \(searchTerm)")
+        
+        if let url: NSURL = NSURL(string: "\(API_URL)/SearchByProductName?APIKEY=\(API_KEY)&ItemName=\(searchTerm)") {
+            let session = NSURLSession.sharedSession()
+            let task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
+                if error != nil {
+                    println(error.localizedDescription)
+                }
+                
+                println("Walmart API completed search for \(searchTerm)")
+                
+                completion(XMLGroceryData: data)
+            })
+            task.resume()
+        }
+
+    
+    }
+    
+//    func searchByProductName(name: String) -> [Grocery] {
+//        
+//        let url = NSURL(string: "\(API_URL)/SearchByProductName?APIKEY=\(API_KEY)&ItemName=\(name)")
+//        return self.parseToGroceryArrayFromURL(url!)
+//    }
 
     func parseToGroceryArrayFromURL(url: NSURL) -> [Grocery] {
         

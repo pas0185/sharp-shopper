@@ -7,7 +7,7 @@
         <!--Grocery List-->
         <scene sceneID="KUv-3o-slX">
             <objects>
-                <tableViewController title="Grocery List" id="X8b-n5-0Zj" customClass="GroceryTableViewController" customModule="SharpShopper" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController title="Grocery List" id="X8b-n5-0Zj" customClass="GroceryListTableViewController" customModule="SharpShopper" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="WGH-0c-sAS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

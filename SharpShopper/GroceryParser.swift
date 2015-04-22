@@ -9,7 +9,25 @@
 import Foundation
 
 class GroceryParser: NSObject {
-
+    
+    class func parse(fromJSON data: NSData) -> [Grocery] {
+        
+        var groceries = [Grocery]()
+        
+        
+        return groceries
+    }
+    
+    class func parse(fromXML data: NSData) -> [Grocery] {
+        
+        var groceries = [Grocery]()
+        
+        
+        return groceries
+    }
+    
+    
+    
     class func parseToDictionary(grocery: Grocery) -> Dictionary<String, String> {
         
         var dict =

@@ -1,5 +1,5 @@
 //
-//  GroceryTableViewController.swift
+//  GroceryListTableViewController.swift
 //  SharpShopper
 //
 //  Created by Patrick Sheehan on 2/6/15.
@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class GroceryTableViewController: UITableViewController, GroceryCellDelegate {
+class GroceryListTableViewController: UITableViewController, GroceryCellDelegate {
     
     var groceries = [Grocery]()
     

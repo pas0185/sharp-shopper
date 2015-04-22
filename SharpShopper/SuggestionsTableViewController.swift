@@ -33,30 +33,37 @@ class SuggestionsTableViewController: UITableViewController {
         
         // Go fetch suggestions for the term
         if let term = grocery?.title {
-            self.performSearchForTerm(term)
+            println("SuggestionsViewController calling NetworkManager for search term: \(term)")
+            
+            NetworkManager.sharedInstance.fetchGroceries(forSearchTerm: term, completionHandler: {
+                (groceries) -> Void in
+                
+                self.suggestedGroceries = groceries
+                self.tableView.reloadData()
+            })
         }
     }
     
-    func performSearchForTerm(term: String?) {
-        
-        if let searchTerm = term {
-            println("SuggestionsViewController performing search for term: \(searchTerm)")
-            walmartClient.searchByProductName(searchTerm) {
-                (groceryData: NSData) in
-                
-                // Parse the grocery data
-                var groceries = Grocery.arrayFromJSON(groceryData)
-                
-                // Assign these groceries for the TableView
-                self.suggestedGroceries = groceries
-                
-                // Reload TableView
-                dispatch_async(dispatch_get_main_queue()) {
-                    self.tableView.reloadData()
-                }
-            }
-        }
-    }
+//    func performSearchForTerm(term: String?) {
+//        
+//        if let searchTerm = term {
+//            println("SuggestionsViewController performing search for term: \(searchTerm)")
+//            walmartClient.searchByProductName(searchTerm) {
+//                (groceryData: NSData) in
+//                
+//                // Parse the grocery data
+//                var groceries = Grocery.arrayFromJSON(groceryData)
+//                
+//                // Assign these groceries for the TableView
+//                self.suggestedGroceries = groceries
+//                
+//                // Reload TableView
+//                dispatch_async(dispatch_get_main_queue()) {
+//                    self.tableView.reloadData()
+//                }
+//            }
+//        }
+//    }
     
     
     //MARK: - Table view data source
@@ -85,6 +92,8 @@ class SuggestionsTableViewController: UITableViewController {
 
         var selectedGrocery = self.suggestedGroceries[indexPath.row]
 
+        
+        
         grocery?.itemID = selectedGrocery.itemID
         grocery?.itemName = selectedGrocery.itemName
         grocery?.itemDescription = selectedGrocery.itemDescription
