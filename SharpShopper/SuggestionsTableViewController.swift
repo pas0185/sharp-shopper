@@ -14,7 +14,6 @@ class SuggestionsTableViewController: UITableViewController {
     
     var grocery: Grocery?
     
-//    var suggestionTerm: String?
     let walmartClient = WalmartAPI()
     
     override func viewDidLoad() {
@@ -26,7 +25,7 @@ class SuggestionsTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension;
     }
 
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         
         // Remove all old groceries
         self.suggestedGroceries.removeAll(keepCapacity: true)
@@ -36,7 +35,6 @@ class SuggestionsTableViewController: UITableViewController {
         if let term = grocery?.name {
             self.performSearchForTerm(term)
         }
-        
     }
     
     func performSearchForTerm(term: String?) {

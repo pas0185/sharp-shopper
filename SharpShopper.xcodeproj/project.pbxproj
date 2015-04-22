@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		155953BB1ABE9570005777A4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155953BA1ABE9570005777A4 /* Main.storyboard */; };
 		155953BD1AC1B7D3005777A4 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 155953BC1AC1B7D3005777A4 /* Keys.plist */; };
-		155953C41ACB9A4A005777A4 /* GroceryList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155953C31ACB9A4A005777A4 /* GroceryList.swift */; };
 		155C68511AE4372C00132EC5 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155C68501AE4372C00132EC5 /* SwiftyJSON.swift */; };
 		15B6BF161AE6B92F0040F4C4 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15B6BF151AE6B92F0040F4C4 /* CoreDataManager.swift */; };
 		15D40D4B1AE07F2A005AA474 /* SupermarketAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15D40D4A1AE07F2A005AA474 /* SupermarketAPI.swift */; };
@@ -41,7 +40,6 @@
 		155953BA1ABE9570005777A4 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		155953BC1AC1B7D3005777A4 /* Keys.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Keys.plist; sourceTree = "<group>"; };
 		155953BE1AC1B89F005777A4 /* SharpShopper-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SharpShopper-Bridging-Header.h"; sourceTree = "<group>"; };
-		155953C31ACB9A4A005777A4 /* GroceryList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GroceryList.swift; path = models/GroceryList.swift; sourceTree = "<group>"; };
 		155C68501AE4372C00132EC5 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		15B6BF151AE6B92F0040F4C4 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		15D40D4A1AE07F2A005AA474 /* SupermarketAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SupermarketAPI.swift; sourceTree = "<group>"; };
@@ -80,6 +78,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		154F6E671AE807F500114020 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				155953BA1ABE9570005777A4 /* Main.storyboard */,
+				CDD53FE91A85769000791912 /* GroceryTableViewController.swift */,
+				15E8C5BC1AD60E0600AF91EF /* SuggestionsTableViewController.swift */,
+				CDD53FE41A8553FC00791912 /* GroceryTableViewCell.swift */,
+				CDD53FE51A8553FC00791912 /* GroceryTableViewCell.xib */,
+				CDD53FCB1A84384200791912 /* LaunchScreen.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		155C68551AE4A6FD00132EC5 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -87,17 +98,6 @@
 				15D40D4C1AE31FA9005AA474 /* WalmartAPI.swift */,
 			);
 			name = Networking;
-			sourceTree = "<group>";
-		};
-		155C68561AE4A71C00132EC5 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				155953C31ACB9A4A005777A4 /* GroceryList.swift */,
-				15B6BF151AE6B92F0040F4C4 /* CoreDataManager.swift */,
-				CDD53FE21A85525800791912 /* Grocery.swift */,
-				CDD53FBF1A84384200791912 /* SharpShopper.xcdatamodeld */,
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		CDD53FAF1A84384200791912 = {
@@ -121,17 +121,15 @@
 		CDD53FBA1A84384200791912 /* SharpShopper */ = {
 			isa = PBXGroup;
 			children = (
+				155953BE1AC1B89F005777A4 /* SharpShopper-Bridging-Header.h */,
 				154F1C231ADC485100EBA76C /* Constants.h */,
 				CDD53FBD1A84384200791912 /* AppDelegate.swift */,
-				155953BA1ABE9570005777A4 /* Main.storyboard */,
-				CDD53FE91A85769000791912 /* GroceryTableViewController.swift */,
-				155C68561AE4A71C00132EC5 /* Models */,
+				15B6BF151AE6B92F0040F4C4 /* CoreDataManager.swift */,
+				CDD53FE21A85525800791912 /* Grocery.swift */,
+				154F6E671AE807F500114020 /* Views */,
 				155C68551AE4A6FD00132EC5 /* Networking */,
-				CDD53FE81A8575F700791912 /* Table Views */,
 				CDD53FC91A84384200791912 /* Images.xcassets */,
-				CDD53FCB1A84384200791912 /* LaunchScreen.xib */,
 				CDD53FBB1A84384200791912 /* Supporting Files */,
-				155953BE1AC1B89F005777A4 /* SharpShopper-Bridging-Header.h */,
 			);
 			path = SharpShopper;
 			sourceTree = "<group>";
@@ -139,6 +137,7 @@
 		CDD53FBB1A84384200791912 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CDD53FBF1A84384200791912 /* SharpShopper.xcdatamodeld */,
 				155C68501AE4372C00132EC5 /* SwiftyJSON.swift */,
 				155953BC1AC1B7D3005777A4 /* Keys.plist */,
 				CDD53FBC1A84384200791912 /* Info.plist */,
@@ -161,16 +160,6 @@
 				CDD53FD71A84384200791912 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CDD53FE81A8575F700791912 /* Table Views */ = {
-			isa = PBXGroup;
-			children = (
-				15E8C5BC1AD60E0600AF91EF /* SuggestionsTableViewController.swift */,
-				CDD53FE41A8553FC00791912 /* GroceryTableViewCell.swift */,
-				CDD53FE51A8553FC00791912 /* GroceryTableViewCell.xib */,
-			);
-			name = "Table Views";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,7 +268,6 @@
 				CDD53FE61A8553FC00791912 /* GroceryTableViewCell.swift in Sources */,
 				15D40D4B1AE07F2A005AA474 /* SupermarketAPI.swift in Sources */,
 				155C68511AE4372C00132EC5 /* SwiftyJSON.swift in Sources */,
-				155953C41ACB9A4A005777A4 /* GroceryList.swift in Sources */,
 				15E8C5BD1AD60E0600AF91EF /* SuggestionsTableViewController.swift in Sources */,
 				15D40D4D1AE31FA9005AA474 /* WalmartAPI.swift in Sources */,
 				CDD53FBE1A84384200791912 /* AppDelegate.swift in Sources */,

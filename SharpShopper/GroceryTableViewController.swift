@@ -29,6 +29,20 @@ class GroceryTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Navigation Bar Title logo
+        let image = UIImage(named: "sharp-shopper-logo")
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
+        imageView.contentMode = .ScaleAspectFit
+        imageView.image = image
+        navigationItem.titleView = imageView
+     
+        // Background legal pad image
+        let backgroundImage = UIImage(named: "legal-pad")
+        let bImageView = UIImageView(image: backgroundImage)
+        bImageView.frame = self.tableView.frame
+        self.tableView.backgroundView = bImageView
+        
+        
         self.tableView.registerNib(UINib(nibName: "GroceryTableViewCell", bundle: nil), forCellReuseIdentifier: "GroceryCell")
         
         self.tableView.estimatedRowHeight = 70;

@@ -30,19 +30,20 @@ class WalmartAPI: NSObject {
     func searchByProductName(name: String, completion: (groceryData: NSData) -> Void) {
         println("Walmart API starting search for product name")
                 
-        let url: NSURL = NSURL(string: "\(API_URL)/search?apiKey=\(APIKey)&query=\(name)")!
-        
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
-            if error != nil {
-                println(error.localizedDescription)
-            }
+        if let url: NSURL = NSURL(string: "\(API_URL)/search?apiKey=\(APIKey)&query=\(name)") {
             
-            println("Walmart API completed product search for \(name)")
-            
-            completion(groceryData: data)
-        })
-        task.resume()
+            let session = NSURLSession.sharedSession()
+            let task = session.dataTaskWithURL(url, completionHandler: {data, response, error -> Void in
+                if error != nil {
+                    println(error.localizedDescription)
+                }
+                
+                println("Walmart API completed product search for \(name)")
+                
+                completion(groceryData: data)
+            })
+            task.resume()
+        }
     }
 
 

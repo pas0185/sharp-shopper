@@ -15,11 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
  
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        // Override point for customization after application launch.        
         
-        // from template code, come back to this later
-        // groceryListViewController.managedObjectContext = self.managedObjectContext
-
         return true
     }
 
