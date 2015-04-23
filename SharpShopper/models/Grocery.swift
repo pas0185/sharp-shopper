@@ -11,23 +11,22 @@ import CoreData
 
 class Grocery: NSManagedObject {
 
-    @NSManaged var draftName: String
-    @NSManaged var itemID: String
-    @NSManaged var itemName: String
-    @NSManaged var itemDescription: String
-    @NSManaged var itemCategory: String
-    @NSManaged var itemImageURL: String
+    @NSManaged var draftName: String?
+    @NSManaged var itemID: String?
+    @NSManaged var itemName: String?
+    @NSManaged var itemDescription: String?
+    @NSManaged var itemCategory: String?
+    @NSManaged var itemImageURL: String?
     @NSManaged var purchased: Bool
     @NSManaged var price: Double
     
     var title: String {
-        
-        if self.draftName != "" {
-            return self.draftName
+        if let draft = self.draftName {
+            return draft
         }
-        
-        if self.itemName != "" {
-            return self.itemName
+    
+        if let realName = self.itemName {
+            return realName
         }
         
         return ""
@@ -35,9 +34,12 @@ class Grocery: NSManagedObject {
     
     var subtitle: String {
         
-        return self.itemName
+        if let sub = self.itemName {
+            return sub
+        }
+        
+        return ""
     }
-    
     class func arrayFromJSON(data: NSData) -> [Grocery] {
         
         var groceries = [Grocery]()
@@ -47,8 +49,6 @@ class Grocery: NSManagedObject {
         if err != nil {
             println("JSON Error \(err!.localizedDescription)")
         }
-        
-        
         
         let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 

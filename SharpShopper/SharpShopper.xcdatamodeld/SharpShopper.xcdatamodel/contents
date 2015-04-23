@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14D131" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Grocery" representedClassName="SharpShopper.Grocery">
-        <attribute name="draftName" attributeType="String" syncable="YES"/>
-        <attribute name="itemCategory" attributeType="String" syncable="YES"/>
-        <attribute name="itemDescription" attributeType="String" syncable="YES"/>
-        <attribute name="itemID" attributeType="String">
+        <attribute name="draftName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemCategory" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemID" optional="YES" attributeType="String">
             <userInfo/>
         </attribute>
-        <attribute name="itemImageURL" attributeType="String" syncable="YES"/>
-        <attribute name="itemName" attributeType="String" syncable="YES"/>
+        <attribute name="itemImageURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="itemName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
         <attribute name="purchased" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <userInfo/>

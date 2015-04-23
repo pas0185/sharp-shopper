@@ -38,6 +38,7 @@ class SuggestionsTableViewController: UITableViewController {
             NetworkManager.sharedInstance.fetchGroceries(forSearchTerm: term, completionHandler: {
                 (groceries) -> Void in
                 
+                println("Fetched \(groceries.count) suggested groceries")
                 self.suggestedGroceries = groceries
                 self.tableView.reloadData()
             })

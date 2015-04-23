@@ -22,6 +22,8 @@ class NetworkManager: NSObject {
         
         var groceries = [Grocery]()
         
+        self.fetchFromSupermarket(term, completionHandler: completionHandler)
+        
         
         // TODO: fetch from some API
         

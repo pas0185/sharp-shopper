@@ -70,7 +70,9 @@ class GroceryTableViewCell: UITableViewCell {
             self.nameLabel.text = grocery.title
             self.descriptionLabel.text = grocery.subtitle
             
-            self.imageURL = grocery.itemImageURL
+            if let url = grocery.itemImageURL {
+                self.imageURL = url
+            }
         }
     }
 
