@@ -45,28 +45,6 @@ class SuggestionsTableViewController: UITableViewController {
         }
     }
     
-//    func performSearchForTerm(term: String?) {
-//        
-//        if let searchTerm = term {
-//            println("SuggestionsViewController performing search for term: \(searchTerm)")
-//            walmartClient.searchByProductName(searchTerm) {
-//                (groceryData: NSData) in
-//                
-//                // Parse the grocery data
-//                var groceries = Grocery.arrayFromJSON(groceryData)
-//                
-//                // Assign these groceries for the TableView
-//                self.suggestedGroceries = groceries
-//                
-//                // Reload TableView
-//                dispatch_async(dispatch_get_main_queue()) {
-//                    self.tableView.reloadData()
-//                }
-//            }
-//        }
-//    }
-    
-    
     //MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -92,8 +70,6 @@ class SuggestionsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 
         var selectedGrocery = self.suggestedGroceries[indexPath.row]
-
-        
         
         grocery?.itemID = selectedGrocery.itemID
         grocery?.itemName = selectedGrocery.itemName
