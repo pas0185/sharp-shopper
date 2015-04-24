@@ -10,9 +10,9 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sharp-shopper-logo" translatesAutoresizingMaskIntoConstraints="NO" id="bhO-YU-YGQ">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sharp-shopper-logo-with-background" translatesAutoresizingMaskIntoConstraints="NO" id="bhO-YU-YGQ">
                     <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
-                    <color key="backgroundColor" red="0.26262077726299909" green="0.82483033459595956" blue="0.15726167661140159" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" red="0.2626207773" green="0.82483033459999999" blue="0.15726167660000001" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -28,6 +28,6 @@
         </view>
     </objects>
     <resources>
-        <image name="sharp-shopper-logo" width="1000" height="333"/>
+        <image name="sharp-shopper-logo-with-background" width="970" height="1000"/>
     </resources>
 </document>

@@ -65,6 +65,9 @@ class GroceryListTableViewController: UITableViewController, GroceryCellDelegate
             self.tableView.reloadData()
         }
     }
+    override func viewDidAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
     
     func addGrocery() {
         

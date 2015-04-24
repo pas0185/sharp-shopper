@@ -22,11 +22,11 @@ class NetworkManager: NSObject {
         
         var groceries = [Grocery]()
         
+        // Use Walmart
+        self.fetchFromWalmart(term, completionHandler: completionHandler)
+        
+        // Use Supermarket
         self.fetchFromSupermarket(term, completionHandler: completionHandler)
-        
-        
-        // TODO: fetch from some API
-        
         
         completionHandler(groceries: groceries)
     }

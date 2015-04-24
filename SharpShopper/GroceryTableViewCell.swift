@@ -19,6 +19,7 @@ class GroceryTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var gImageView: UIImageView!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var disclosureButton: UIButton!
     
     private let imageViewWidth = 80 as CGFloat
     @IBOutlet weak var imageViewWidthContstraint: NSLayoutConstraint!

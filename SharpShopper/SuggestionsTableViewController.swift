@@ -23,6 +23,19 @@ class SuggestionsTableViewController: UITableViewController {
         self.tableView.registerNib(UINib(nibName: "GroceryTableViewCell", bundle: nil), forCellReuseIdentifier: "GroceryCell")
         self.tableView.estimatedRowHeight = 70;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
+        
+        // Navigation Bar Title logo
+        let image = UIImage(named: "sharp-shopper-logo")
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 38, height: 38))
+        imageView.contentMode = .ScaleAspectFit
+        imageView.image = image
+        navigationItem.titleView = imageView
+        
+        // Background legal pad image
+        let backgroundImage = UIImage(named: "legal-pad")
+        let bImageView = UIImageView(image: backgroundImage)
+        bImageView.frame = self.tableView.frame
+        self.tableView.backgroundView = bImageView
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -39,8 +52,10 @@ class SuggestionsTableViewController: UITableViewController {
                 (groceries) -> Void in
                 
                 println("Fetched \(groceries.count) suggested groceries")
-                self.suggestedGroceries = groceries
-                self.tableView.reloadData()
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.suggestedGroceries.extend(groceries)
+                    self.tableView.reloadData()
+                })
             })
         }
     }
@@ -63,6 +78,7 @@ class SuggestionsTableViewController: UITableViewController {
         
         var grocery = self.suggestedGroceries[indexPath.row]
         cell?.assignGrocery(grocery)
+        cell?.disclosureButton.hidden = true
         
         return cell!
     }
@@ -82,8 +98,11 @@ class SuggestionsTableViewController: UITableViewController {
         println("Selected detailed grocery: \(grocery)")
         
         CoreDataManager.sharedInstance.saveContext()
+        if let parent = self.parentViewController as? GroceryListTableViewController {
+            parent.tableView.reloadData()
+        }
+        
         self.navigationController?.popViewControllerAnimated(true)
-
     }
 
 
