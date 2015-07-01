@@ -104,7 +104,7 @@
 			name = Views;
 			sourceTree = "<group>";
 		};
-		154F6E6A1AE84A0D00114020 /* Data */ = {
+		154F6E6A1AE84A0D00114020 /* Data/Networking */ = {
 			isa = PBXGroup;
 			children = (
 				CDD53FE21A85525800791912 /* Grocery.swift */,
@@ -112,7 +112,7 @@
 				154F6E6B1AE84A1B00114020 /* NetworkManager.swift */,
 				154F6E6D1AE84A2A00114020 /* APIs */,
 			);
-			name = Data;
+			name = Data/Networking;
 			sourceTree = "<group>";
 		};
 		154F6E6D1AE84A2A00114020 /* APIs */ = {
@@ -174,12 +174,10 @@
 		CDD53FBA1A84384200791912 /* SharpShopper */ = {
 			isa = PBXGroup;
 			children = (
-				155953BE1AC1B89F005777A4 /* SharpShopper-Bridging-Header.h */,
-				154F1C231ADC485100EBA76C /* Constants.h */,
 				CDD53FBD1A84384200791912 /* AppDelegate.swift */,
-				154F6E721AE8523200114020 /* Utilities */,
-				154F6E6A1AE84A0D00114020 /* Data */,
 				154F6E671AE807F500114020 /* Views */,
+				154F6E6A1AE84A0D00114020 /* Data/Networking */,
+				154F6E721AE8523200114020 /* Utilities */,
 				CDD53FC91A84384200791912 /* Images.xcassets */,
 				CDD53FBB1A84384200791912 /* Supporting Files */,
 			);
@@ -189,6 +187,8 @@
 		CDD53FBB1A84384200791912 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				155953BE1AC1B89F005777A4 /* SharpShopper-Bridging-Header.h */,
+				154F1C231ADC485100EBA76C /* Constants.h */,
 				CDD53FCB1A84384200791912 /* LaunchScreen.xib */,
 				CDD53FBF1A84384200791912 /* SharpShopper.xcdatamodeld */,
 				155953BC1AC1B7D3005777A4 /* Keys.plist */,
